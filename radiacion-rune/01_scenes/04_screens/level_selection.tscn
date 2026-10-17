@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://cr6b8uqfmsy0p"]
+
+[ext_resource type="PackedScene" uid="uid://dmy3ujnuhgg0e" path="res://01_scenes/04_screens/01_components/custom_button.tscn" id="1_mciy3"]
+
+[node name="LevelSelection" type="Control" unique_id=1523993108]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=358791834]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Levels"
+
+[node name="Level1" parent="." unique_id=997814475 instance=ExtResource("1_mciy3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.4
+anchor_right = 0.25
+anchor_bottom = 0.4
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+button_text = "Level 1"
+
+[node name="Level2" parent="." unique_id=1657392992 instance=ExtResource("1_mciy3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.4
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+button_text = "Level 2"
+
+[node name="Level3" parent="." unique_id=155565845 instance=ExtResource("1_mciy3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.4
+anchor_right = 0.75
+anchor_bottom = 0.4
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+button_text = "Level 3"
+
+[node name="Level4" parent="." unique_id=237741186 instance=ExtResource("1_mciy3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.6
+anchor_right = 0.375
+anchor_bottom = 0.6
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+button_text = "Level 4"
+
+[node name="Level5" parent="." unique_id=180413103 instance=ExtResource("1_mciy3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.6
+anchor_right = 0.625
+anchor_bottom = 0.6
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+button_text = "Level 5"
+
+[node name="Back" parent="." unique_id=1928532478 instance=ExtResource("1_mciy3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.95
+anchor_right = 0.05
+anchor_bottom = 0.95
+offset_left = 0.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 0.0
+grow_vertical = 0
+button_text = "Back"
