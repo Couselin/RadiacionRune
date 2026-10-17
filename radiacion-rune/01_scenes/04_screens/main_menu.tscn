@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c3kefqelt8ton"]
 
 [ext_resource type="PackedScene" uid="uid://dmy3ujnuhgg0e" path="res://01_scenes/04_screens/01_components/custom_button.tscn" id="1_5usjw"]
+[ext_resource type="Script" uid="uid://cv2pugkg548vo" path="res://01_scenes/04_screens/main_menu.gd" id="1_fq243"]
 
 [node name="MainMenu" type="Control" unique_id=357869142]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fq243")
 
 [node name="SelectLevel" parent="." unique_id=997814475 instance=ExtResource("1_5usjw")]
 layout_mode = 0
@@ -17,7 +19,6 @@ offset_top = 338.0
 offset_right = 788.0
 offset_bottom = 466.0
 ignore_texture_size = false
-stretch_mode = 5
 button_text = "Select Level"
 
 [node name="Exit" parent="." unique_id=2035615169 instance=ExtResource("1_5usjw")]
@@ -27,7 +28,6 @@ offset_top = 470.0
 offset_right = 788.0
 offset_bottom = 598.0
 ignore_texture_size = false
-stretch_mode = 5
 button_text = "Exit"
 
 [node name="Label" type="Label" parent="." unique_id=804545514]
@@ -45,3 +45,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Sweet Scape"
 uppercase = true
+
+[connection signal="pressed" from="SelectLevel" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
