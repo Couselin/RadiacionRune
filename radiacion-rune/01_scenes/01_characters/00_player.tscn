@@ -3,16 +3,42 @@
 [ext_resource type="Texture2D" uid="uid://jwj4uw11cr3x" path="res://icon.svg" id="1_0q54h"]
 [ext_resource type="Script" uid="uid://dofs4uupekc0u" path="res://01_scenes/01_characters/00_player.gd" id="1_4tr5h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(64, 56)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
+size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D" unique_id=1679052046]
 script = ExtResource("1_4tr5h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=463945829]
-scale = Vector2(0.64062506, 0.609375)
 texture = ExtResource("1_0q54h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2112730144]
-shape = SubResource("RectangleShape2D_8w0r3")
-debug_color = Color(0.9976066, 0, 0.17228171, 0.41960785)
+[node name="visionShapes" type="Node2D" parent="." unique_id=1690161393]
+
+[node name="visionRight" type="Area2D" parent="visionShapes" unique_id=953771003]
+position = Vector2(64, 0)
+
+[node name="CSRight" type="CollisionShape2D" parent="visionShapes/visionRight" unique_id=415379568]
+shape = SubResource("RectangleShape2D_kw3nm")
+
+[node name="visionLeft" type="Area2D" parent="visionShapes" unique_id=2054186085]
+position = Vector2(-64, 0)
+
+[node name="CSLeft" type="CollisionShape2D" parent="visionShapes/visionLeft" unique_id=1334207653]
+shape = SubResource("RectangleShape2D_kw3nm")
+
+[node name="visionUp" type="Area2D" parent="visionShapes" unique_id=1529093121]
+position = Vector2(0, -64)
+
+[node name="CSUp" type="CollisionShape2D" parent="visionShapes/visionUp" unique_id=1298730746]
+shape = SubResource("RectangleShape2D_kw3nm")
+
+[node name="visionDown" type="Area2D" parent="visionShapes" unique_id=2017512467]
+position = Vector2(0, 64)
+
+[node name="CSDown" type="CollisionShape2D" parent="visionShapes/visionDown" unique_id=287223550]
+shape = SubResource("RectangleShape2D_kw3nm")
+
+[connection signal="body_entered" from="visionShapes/visionRight" to="." method="_on_vision_right_body_entered"]
+[connection signal="body_entered" from="visionShapes/visionLeft" to="." method="_on_vision_left_body_entered"]
+[connection signal="body_entered" from="visionShapes/visionUp" to="." method="_on_vision_up_body_entered"]
+[connection signal="body_entered" from="visionShapes/visionDown" to="." method="_on_vision_down_body_entered"]

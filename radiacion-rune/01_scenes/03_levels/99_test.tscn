@@ -1,9 +1,56 @@
-[gd_scene format=3 uid="uid://vot0usisjooa"]
+[gd_scene format=4 uid="uid://vot0usisjooa"]
 
 [ext_resource type="PackedScene" uid="uid://w0dpjdb1rn5b" path="res://01_scenes/01_characters/00_player.tscn" id="1_biltb"]
+[ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_r7ud5"]
+[ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="4_2rb5d"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tro0x"]
+texture = ExtResource("4_2rb5d")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_r7ud5"]
+tile_layout = 2
+tile_size = Vector2i(64, 64)
+uv_clipping = true
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tro0x")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
-size = Vector2(133, 84)
+size = Vector2(133, 90)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
 size = Vector2(1280, 20)
@@ -11,12 +58,18 @@ size = Vector2(1280, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7mgy"]
 size = Vector2(20, 720)
 
-[node name="Testing_level" type="Node2D" unique_id=1624179887]
+[node name="Testing_level" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition")]
+script = ExtResource("1_r7ud5")
+initialPosition = NodePath("start")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=187950919 groups=["floor"]]
+tile_map_data = PackedByteArray("AAACAAkAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAACAAcAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAACAAUAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAACAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAUAAAAAAAAAAAANAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAAOAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAADAAMAAAABAAAAAAACAAQAAAABAAAAAAADAAUAAAABAAAAAAACAAYAAAABAAAAAAADAAcAAAABAAAAAAACAAgAAAABAAAAAAADAAkAAAABAAAAAAAEAAgAAAABAAAAAAAEAAYAAAABAAAAAAAEAAQAAAABAAAAAAAFAAUAAAABAAAAAAAGAAYAAAABAAAAAAAHAAcAAAABAAAAAAAIAAgAAAABAAAAAAAJAAkAAAABAAAAAAAHAAkAAAABAAAAAAAGAAgAAAABAAAAAAAFAAcAAAABAAAAAAAFAAkAAAABAAAAAAAFAAMAAAABAAAAAAAGAAQAAAABAAAAAAAHAAUAAAABAAAAAAAIAAYAAAABAAAAAAAJAAcAAAABAAAAAAAKAAgAAAABAAAAAAALAAkAAAABAAAAAAANAAkAAAABAAAAAAAMAAgAAAABAAAAAAALAAcAAAABAAAAAAAKAAYAAAABAAAAAAAJAAUAAAABAAAAAAAIAAQAAAABAAAAAAAHAAMAAAABAAAAAAAJAAMAAAABAAAAAAAKAAQAAAABAAAAAAALAAUAAAABAAAAAAAMAAYAAAABAAAAAAANAAcAAAABAAAAAAAOAAgAAAABAAAAAAAOAAYAAAABAAAAAAANAAUAAAABAAAAAAAMAAQAAAABAAAAAAALAAMAAAABAAAAAAANAAMAAAABAAAAAAAOAAQAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_r7ud5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=171477292]
 
 [node name="MiddleObject" type="CollisionShape2D" parent="StaticBody2D" unique_id=366066638]
-position = Vector2(557.5, 253)
+position = Vector2(832, 149)
 shape = SubResource("RectangleShape2D_8w0r3")
 
 [node name="UpperWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1128302980]
@@ -38,4 +91,7 @@ shape = SubResource("RectangleShape2D_w7mgy")
 [node name="Entities" type="Node2D" parent="." unique_id=727673066]
 
 [node name="Player" parent="Entities" unique_id=1679052046 instance=ExtResource("1_biltb")]
-position = Vector2(208, 207)
+position = Vector2(128, 96)
+
+[node name="start" type="Node2D" parent="." unique_id=501328705]
+position = Vector2(224, 352)
