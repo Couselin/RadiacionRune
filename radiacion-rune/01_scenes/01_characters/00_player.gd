@@ -1,14 +1,51 @@
-extends CharacterBody2D
+extends Node2D
+class_name Player
 
-var speed := 500
-var direction: Vector2
+var goUp: bool = true
+var goDown: bool = true
+var goRight: bool = true
+var goLeft: bool = true
+
+func _ready() -> void:
+	pass
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("right") and goRight==true:
+		position.x = position.x + 64
+	if Input.is_action_just_pressed("left") and goLeft==true:
+		position.x = position.x - 64
+	if Input.is_action_just_pressed("up") and goUp==true:
+		position.y = position.y - 64
+	if Input.is_action_just_pressed("down") and goDown==true:
+		position.y = position.y + 64
+	pass
 
 
-func get_input() -> void:
-	direction = Input.get_vector("left", "right", "up", "down")
 
 
-func _physics_process(delta) -> void:
-	get_input()
-	velocity = direction * speed
-	move_and_slide()
+func _on_vision_right_area_entered(_area: Area2D) -> void:
+	goRight = false
+	pass 
+func _on_vision_left_area_entered(_area: Area2D) -> void:
+	goLeft = false
+	pass 
+func _on_vision_up_area_entered(_area: Area2D) -> void:
+	goUp = false
+	pass 
+func _on_vision_down_area_entered(_area: Area2D) -> void:
+	goDown = false
+	pass 
+
+
+func _on_vision_right_area_exited(_area: Area2D) -> void:
+	goRight = true
+	pass
+func _on_vision_left_area_exited(_area: Area2D) -> void:
+	goLeft = true
+	pass 
+func _on_vision_up_area_exited(_area: Area2D) -> void:
+	goUp = true
+	pass 
+func _on_vision_down_area_exited(_area: Area2D) -> void:
+	goDown = true
+	pass 
