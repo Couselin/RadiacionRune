@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cvq0ptqw1nyft"]
+
+[ext_resource type="Texture2D" uid="uid://bbyblk25f05io" path="res://00_assets/01_sprites/04_props/SWS_pr_sprite_placeholder_caramelo_v01_001.png" id="1_cavji"]
+[ext_resource type="Script" uid="uid://benjtv1bkxpau" path="res://01_scenes/02_objects/obstacle.gd" id="1_dkd0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
+size = Vector2(32, 32)
+
+[node name="Obstacle" type="Area2D" unique_id=789374340]
+collision_layer = 4
+script = ExtResource("1_dkd0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453409406]
+texture = ExtResource("1_cavji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377570330]
+shape = SubResource("RectangleShape2D_kw3nm")
+debug_color = Color(0.9858777, 0.00015411466, 0.4695121, 0.41960785)
