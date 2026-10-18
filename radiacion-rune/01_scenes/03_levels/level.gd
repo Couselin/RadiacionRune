@@ -41,8 +41,8 @@ func createBands(from: Vector2, to: Vector2, current_position: Vector2) -> void:
 	var bandObstacle = obstacleRef.instantiate() as Obstacle
 	for key in myDic:
 		if key == [from, to]:
-			bandObstacle.set_band(myDic[[from, to]], current_position)
 			add_child(bandObstacle)
+			bandObstacle.set_band(myDic[[from, to]], current_position)
 
 func collected_one_candy(candyNumber):
 	door.set_count_candy(door.candyGoal - candyNumber)

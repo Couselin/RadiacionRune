@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cvq0ptqw1nyft"]
 
-[ext_resource type="Texture2D" uid="uid://bbyblk25f05io" path="res://00_assets/01_sprites/04_props/SWS_pr_sprite_placeholder_caramelo_v01_001.png" id="1_cavji"]
 [ext_resource type="Script" uid="uid://benjtv1bkxpau" path="res://01_scenes/02_objects/obstacle.gd" id="1_dkd0n"]
+[ext_resource type="Texture2D" uid="uid://dafpprpwqr1pc" path="res://00_assets/01_sprites/04_props/SWE_pr_sprite_03final_obstaculo_v02_001.png" id="2_i84so"]
+[ext_resource type="Texture2D" uid="uid://d4l1uxkwpgra" path="res://00_assets/01_sprites/04_props/SWE_pr_sprite_03final_obstaculo_v01_001.png" id="3_nwvum"]
 [ext_resource type="Texture2D" uid="uid://bmke3nfd8oof1" path="res://00_assets/01_sprites/04_props/SWE_blackHole.png" id="3_s22wg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
@@ -9,7 +10,7 @@ size = Vector2(24, 24)
 
 [node name="Obstacle" type="Area2D" unique_id=789374340 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_dkd0n")
-image = ExtResource("1_cavji")
+images = Array[Texture2D]([ExtResource("2_i84so"), ExtResource("3_nwvum"), ExtResource("3_s22wg")])
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453409406]
