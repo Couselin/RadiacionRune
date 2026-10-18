@@ -56,22 +56,18 @@ door = NodePath("door")
 
 [node name="UpperWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1128302980]
 position = Vector2(544, 176)
-shape = SubResource("RectangleShape2D_h4t55")
 debug_color = Color(0.9942904, 0, 0.23168403, 0.41960785)
 
 [node name="BottomWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1232207395]
 position = Vector2(544, 466)
-shape = SubResource("RectangleShape2D_h4t55")
 debug_color = Color(0.99219686, 0, 0.2616491, 0.41960785)
 
 [node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1793536677]
 position = Vector2(112, 416)
-shape = SubResource("RectangleShape2D_w7mgy")
 debug_color = Color(0.9967461, 0, 0.18967506, 0.41960785)
 
 [node name="RightWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=398227252]
 position = Vector2(530, 414)
-shape = SubResource("RectangleShape2D_w7mgy")
 debug_color = Color(0.9911713, 0, 0.27496788, 0.41960785)
 
 [node name="TileMapFloor" type="TileMapLayer" parent="." unique_id=980492159]
