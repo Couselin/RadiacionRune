@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dmy3ujnuhgg0e" path="res://01_scenes/04_screens/01_components/custom_button.tscn" id="1_5usjw"]
 [ext_resource type="Script" uid="uid://cv2pugkg548vo" path="res://01_scenes/04_screens/main_menu.gd" id="1_fq243"]
 [ext_resource type="Texture2D" uid="uid://dw53sn57a1krt" path="res://00_assets/01_sprites/03_ui/SWS_UI_conceptArt_00thumb_mainMenu_v02_001.png" id="2_fq243"]
+[ext_resource type="Texture2D" uid="uid://c7ypp4kc5o6n0" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_largeButton_v01.png" id="4_c4xgr"]
+[ext_resource type="Texture2D" uid="uid://bimle2h0glymf" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_largeButtonPressed_v01.png" id="5_vna32"]
+[ext_resource type="Texture2D" uid="uid://daiea2jr8lwdh" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_largeButtonHovered_v01.png" id="6_u2ut5"]
 
 [node name="MainMenu" type="Control" unique_id=357869142]
 layout_mode = 3
@@ -25,15 +28,21 @@ offset_left = 492.0
 offset_top = 338.0
 offset_right = 788.0
 offset_bottom = 466.0
+texture_normal = ExtResource("4_c4xgr")
+texture_pressed = ExtResource("5_vna32")
+texture_hover = ExtResource("6_u2ut5")
 ignore_texture_size = false
 button_text = "Select Level"
 
 [node name="Exit" parent="." unique_id=2035615169 instance=ExtResource("1_5usjw")]
 layout_mode = 0
-offset_left = 492.0
-offset_top = 470.0
-offset_right = 788.0
-offset_bottom = 598.0
+offset_left = 496.0
+offset_top = 528.0
+offset_right = 964.0
+offset_bottom = 624.0
+texture_normal = ExtResource("4_c4xgr")
+texture_pressed = ExtResource("5_vna32")
+texture_hover = ExtResource("6_u2ut5")
 ignore_texture_size = false
 button_text = "Exit"
 

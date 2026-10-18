@@ -14,7 +14,6 @@ images = Array[Texture2D]([ExtResource("2_i84so"), ExtResource("3_nwvum"), ExtRe
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453409406]
-texture = ExtResource("3_s22wg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377570330]
 shape = SubResource("RectangleShape2D_kw3nm")

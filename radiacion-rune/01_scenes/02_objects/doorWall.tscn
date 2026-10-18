@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bq66hmi2scx3p"]
+
+[ext_resource type="Script" uid="uid://b2iirw77jygw0" path="res://01_scenes/02_objects/door_wall.gd" id="1_57l6i"]
+[ext_resource type="Texture2D" uid="uid://oh0avq1nspde" path="res://00_assets/01_sprites/04_props/button/door_closed.png" id="2_ninxu"]
+[ext_resource type="Texture2D" uid="uid://drulw2ydycepl" path="res://00_assets/01_sprites/04_props/button/door_opened.png" id="3_rvhu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
+size = Vector2(24, 4)
+
+[node name="doorWall" type="Area2D" unique_id=478239553]
+script = ExtResource("1_57l6i")
+images = Array[Texture2D]([ExtResource("2_ninxu"), ExtResource("3_rvhu6")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=340640856]
+texture = ExtResource("2_ninxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=295578627]
+shape = SubResource("RectangleShape2D_kw3nm")
