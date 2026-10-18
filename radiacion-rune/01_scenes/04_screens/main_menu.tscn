@@ -24,27 +24,27 @@ texture = ExtResource("2_fq243")
 
 [node name="SelectLevel" parent="." unique_id=997814475 instance=ExtResource("1_5usjw")]
 layout_mode = 0
-offset_left = 492.0
-offset_top = 338.0
-offset_right = 788.0
-offset_bottom = 466.0
+offset_left = 456.0
+offset_top = 480.0
+offset_right = 832.0
+offset_bottom = 568.0
 texture_normal = ExtResource("4_c4xgr")
 texture_pressed = ExtResource("5_vna32")
 texture_hover = ExtResource("6_u2ut5")
-ignore_texture_size = false
 button_text = "Select Level"
+size_text = 40
 
 [node name="Exit" parent="." unique_id=2035615169 instance=ExtResource("1_5usjw")]
 layout_mode = 0
-offset_left = 496.0
-offset_top = 528.0
-offset_right = 964.0
-offset_bottom = 624.0
+offset_left = 504.0
+offset_top = 576.0
+offset_right = 792.0
+offset_bottom = 648.0
 texture_normal = ExtResource("4_c4xgr")
 texture_pressed = ExtResource("5_vna32")
 texture_hover = ExtResource("6_u2ut5")
-ignore_texture_size = false
 button_text = "Exit"
+size_text = 40
 
 [node name="Label" type="Label" parent="." unique_id=804545514]
 layout_mode = 1
