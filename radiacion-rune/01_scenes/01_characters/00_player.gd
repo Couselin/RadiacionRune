@@ -11,7 +11,7 @@ var new_position: Vector2
 var collectedCandy: int = 0
 
 signal bandDirections(from: Vector2, to: Vector2, current_position: Vector2)
-
+signal collectOneCandy(int)
 
 func _ready() -> void:
 	pass
@@ -110,6 +110,6 @@ func _on_vision_down_body_exited(_body) -> void:
 func _on_nene_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("candy"):
 		collectedCandy += 1
-		print(collectedCandy)
+		collectOneCandy.emit(collectedCandy)
 		area.queue_free()
 	pass

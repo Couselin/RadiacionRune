@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://d24cotg5ub53l"]
+
+[ext_resource type="Texture2D" uid="uid://bau68y8pylp6r" path="res://00_assets/01_sprites/04_props/SWE_door_tile.png" id="1_1vvuk"]
+[ext_resource type="Script" uid="uid://btltbn0n8s3qd" path="res://00_assets/01_sprites/04_props/door.gd" id="1_qm0ky"]
+[ext_resource type="Texture2D" uid="uid://dsywa6u22m4p8" path="res://00_assets/01_sprites/04_props/SWE_door_tile02.png" id="3_ycmr3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
+size = Vector2(24, 24)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kw3nm"]
+font_color = Color(0.5176471, 0.36862746, 0.75686276, 1)
+outline_size = 4
+outline_color = Color(0.12941177, 0.050980393, 0.015686275, 1)
+
+[node name="door" type="Area2D" unique_id=1078827551 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_qm0ky")
+images = Array[Texture2D]([ExtResource("1_1vvuk"), ExtResource("3_ycmr3")])
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=307808642]
+texture = ExtResource("1_1vvuk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844642310]
+position = Vector2(0, 50)
+shape = SubResource("RectangleShape2D_kw3nm")
+
+[node name="Label" type="Label" parent="." unique_id=131180909]
+offset_left = 57.0
+offset_top = -16.0
+offset_right = 97.0
+offset_bottom = 7.0
+text = "3"
+label_settings = SubResource("LabelSettings_kw3nm")
+horizontal_alignment = 1

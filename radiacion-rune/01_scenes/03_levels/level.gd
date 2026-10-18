@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var playerRef = preload("res://01_scenes/01_characters/00_player.tscn")
 @export var initialPosition: Node2D
-
+@export var door: Door
 
 @export var myDic: Dictionary[Array, Texture2D] = {
 	[Vector2.LEFT, Vector2.RIGHT]: preload("res://00_assets/01_sprites/04_props/SWS_pr_sprite_placeholder_caramelo_v01_001.png"),
@@ -17,6 +17,7 @@ func _ready() -> void:
 	playerInstance.set_player(initialPosition.position)
 	print('hola')
 	playerInstance.bandDirections.connect(createBands)
+	playerInstance.collectOneCandy.connect(collected_one_candy)
 	pass # Replace with function body.
 
 func createBands(from: Vector2, to: Vector2, current_position: Vector2) -> void:
@@ -29,7 +30,11 @@ func createBands(from: Vector2, to: Vector2, current_position: Vector2) -> void:
 			image.position = current_position
 			add_child(image)
 
-
+func collected_one_candy(candyNumber):
+	door.set_count_candy(door.candyGoal - candyNumber)
+	if candyNumber >= door.candyGoal:
+		door.open_door()
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
