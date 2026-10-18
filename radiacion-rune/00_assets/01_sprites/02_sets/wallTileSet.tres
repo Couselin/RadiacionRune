@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" format=3 uid="uid://dp0rqaseevpi"]
+
+[ext_resource type="Texture2D" uid="uid://cc5vwa1yioe46" path="res://00_assets/01_sprites/02_sets/SWS_SPRITESHEET_walls.png" id="1_4xh5c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_arvv5"]
+texture = ExtResource("1_4xh5c")
+texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
+1:0/0 = 0
+1:0/0/z_index = 4
+2:0/0 = 0
+2:0/0/z_index = 2
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 28, 12, 32, -12, 32, -12, 28)
+1:1/0 = 0
+1:1/0/z_index = 3
+1:1/0/y_sort_origin = 123
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, -12, 32, -12, 32, 12, 28, 12)
+2:1/0 = 0
+2:1/0/z_index = 1
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -32, 12, -32, 12, -28, -12, -28)
+2:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(-32, -12, -28, -12, -28, 12, -32, 12)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 32)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, 0, 16, 32, -16, 32)
+
+[resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_arvv5")

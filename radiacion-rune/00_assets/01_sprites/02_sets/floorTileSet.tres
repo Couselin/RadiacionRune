@@ -1,0 +1,22 @@
+[gd_resource type="TileSet" format=3 uid="uid://ea77inpw1cdd"]
+
+[ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="1_5wpfq"]
+[ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="2_6d0p5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7ud5"]
+texture = ExtResource("1_5wpfq")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rb5d"]
+texture = ExtResource("2_6d0p5")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_r7ud5")
+sources/1 = SubResource("TileSetAtlasSource_2rb5d")

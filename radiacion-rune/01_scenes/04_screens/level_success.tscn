@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://ct74vbf5sygrs"]
+
+[ext_resource type="PackedScene" uid="uid://dmy3ujnuhgg0e" path="res://01_scenes/04_screens/01_components/custom_button.tscn" id="1_cuocc"]
+[ext_resource type="Script" uid="uid://dpwrsnjgggl3y" path="res://01_scenes/04_screens/level_success.gd" id="1_yqif4"]
+
+[node name="LevelSuccess" type="Control" unique_id=1853997539]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqif4")
+
+[node name="Labels" type="Control" parent="." unique_id=1791732049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" type="Label" parent="Labels" unique_id=1617384915]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -82.0
+offset_top = -11.5
+offset_right = 82.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nivel superado"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Replay" type="Label" parent="Labels" unique_id=306050329]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+text = "	Replay level"
+
+[node name="Level Selection" type="Label" parent="Labels" unique_id=689422305]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.6
+anchor_right = 0.25
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Selection"
+
+[node name="Next Level" type="Label" parent="Labels" unique_id=869260314]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.6
+anchor_right = 0.75
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next Level"
+
+[node name="Time" type="Label" parent="Labels" unique_id=1832498597]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.4
+anchor_right = 0.2
+anchor_bottom = 0.4
+grow_vertical = 2
+text = "Time 00:00:00"
+
+[node name="TimeRecord" type="Label" parent="Labels" unique_id=962818427]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.4
+anchor_right = 0.85
+anchor_bottom = 0.4
+grow_vertical = 2
+text = "Time Record 00:00:00"
+
+[node name="Buttons" type="Control" parent="." unique_id=1314931324]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level Selection Button" parent="Buttons" unique_id=997814475 instance=ExtResource("1_cuocc")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.75
+anchor_right = 0.25
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+button_text = ""
+
+[node name="Replay Button" parent="Buttons" unique_id=1218337962 instance=ExtResource("1_cuocc")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+button_text = ""
+
+[node name="Next Level Button" parent="Buttons" unique_id=1998706754 instance=ExtResource("1_cuocc")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.75
+anchor_right = 0.75
+anchor_bottom = 0.75
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+button_text = ""
+
+[connection signal="pressed" from="Buttons/Level Selection Button" to="." method="_on_level_selection_button_pressed"]
+[connection signal="pressed" from="Buttons/Replay Button" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="Buttons/Next Level Button" to="." method="_on_next_level_button_pressed"]

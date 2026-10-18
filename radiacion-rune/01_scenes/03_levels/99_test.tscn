@@ -1,0 +1,58 @@
+[gd_scene format=4 uid="uid://vot0usisjooa"]
+
+[ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_r7ud5"]
+[ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="2_1i7uv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7ud5"]
+texture = ExtResource("2_1i7uv")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h4t55"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_r7ud5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w0r3"]
+size = Vector2(837, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
+size = Vector2(832, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7mgy"]
+size = Vector2(32, 452)
+
+[node name="Testing_level" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition")]
+script = ExtResource("1_r7ud5")
+initialPosition = NodePath("start")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1347439042]
+tile_map_data = PackedByteArray("AAACAAMAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAkAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAMAAAAAAAAAAAACAAUAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAACAAcAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAACAAkAAAAAAAAAAAACAAgAAAABAAAAAAADAAkAAAABAAAAAAACAAYAAAABAAAAAAADAAcAAAABAAAAAAAEAAgAAAABAAAAAAAFAAkAAAABAAAAAAAHAAkAAAABAAAAAAAGAAgAAAABAAAAAAAFAAcAAAABAAAAAAAEAAYAAAABAAAAAAADAAUAAAABAAAAAAACAAQAAAABAAAAAAADAAMAAAABAAAAAAAEAAQAAAABAAAAAAAFAAUAAAABAAAAAAAGAAYAAAABAAAAAAAHAAcAAAABAAAAAAAIAAgAAAABAAAAAAAJAAkAAAABAAAAAAALAAkAAAABAAAAAAAKAAgAAAABAAAAAAAJAAcAAAABAAAAAAAIAAYAAAABAAAAAAAHAAUAAAABAAAAAAAGAAQAAAABAAAAAAAFAAMAAAABAAAAAAAHAAMAAAABAAAAAAAIAAQAAAABAAAAAAAJAAUAAAABAAAAAAAKAAYAAAABAAAAAAALAAcAAAABAAAAAAAMAAgAAAABAAAAAAANAAkAAAABAAAAAAAOAAgAAAABAAAAAAANAAcAAAABAAAAAAAMAAYAAAABAAAAAAALAAUAAAABAAAAAAAKAAQAAAABAAAAAAAJAAMAAAABAAAAAAALAAMAAAABAAAAAAAMAAQAAAABAAAAAAANAAUAAAABAAAAAAAOAAYAAAABAAAAAAAOAAQAAAABAAAAAAANAAMAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_h4t55")
+
+[node name="StaticBody2D" type="Area2D" parent="." unique_id=1302734934]
+
+[node name="MiddleObject" type="CollisionShape2D" parent="StaticBody2D" unique_id=366066638]
+position = Vector2(571, 20)
+shape = SubResource("RectangleShape2D_8w0r3")
+
+[node name="UpperWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1128302980]
+position = Vector2(544, 176)
+shape = SubResource("RectangleShape2D_h4t55")
+
+[node name="BottomWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1232207395]
+position = Vector2(544, 656)
+shape = SubResource("RectangleShape2D_h4t55")
+
+[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1793536677]
+position = Vector2(112, 416)
+shape = SubResource("RectangleShape2D_w7mgy")
+
+[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=398227252]
+position = Vector2(976, 414)
+shape = SubResource("RectangleShape2D_w7mgy")
+
+[node name="Entities" type="Node2D" parent="." unique_id=727673066]
+
+[node name="start" type="Node2D" parent="." unique_id=501328705]
+position = Vector2(224, 352)

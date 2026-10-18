@@ -1,0 +1,57 @@
+[gd_scene format=4 uid="uid://cucypoo8f0h8p"]
+
+[ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_csmek"]
+[ext_resource type="TileSet" uid="uid://ea77inpw1cdd" path="res://00_assets/01_sprites/02_sets/floorTileSet.tres" id="2_qiyo3"]
+[ext_resource type="TileSet" uid="uid://dp0rqaseevpi" path="res://00_assets/01_sprites/02_sets/wallTileSet.tres" id="3_1lans"]
+[ext_resource type="PackedScene" uid="uid://d24cotg5ub53l" path="res://00_assets/01_sprites/04_props/door.tscn" id="4_1lans"]
+[ext_resource type="PackedScene" uid="uid://cvq0ptqw1nyft" path="res://01_scenes/02_objects/obstacle.tscn" id="4_eka1p"]
+[ext_resource type="PackedScene" uid="uid://da1r5ww3sfjno" path="res://01_scenes/02_objects/candy.tscn" id="5_qiyo3"]
+
+[node name="Level1" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition", "door")]
+script = ExtResource("1_csmek")
+initialPosition = NodePath("start")
+door = NodePath("door")
+level_max_movement = 21
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=980492159]
+tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAACAAcAAQAAAAAAAAACAAgAAQABAAAAAAACAAkAAQAAAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAADAAcAAQABAAAAAAADAAgAAQAAAAAAAAADAAkAAQABAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQABAAAAAAAEAAkAAQAAAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQABAAAAAAAFAAgAAQAAAAAAAAAFAAkAAQABAAAAAAA=")
+tile_set = ExtResource("2_qiyo3")
+
+[node name="TileMapWalls" type="TileMapLayer" parent="." unique_id=282268763]
+tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAABAAoAAAABAAAAACABAAMAAAABAAEAAAABAAUAAAACAAAAAGABAAcAAAABAAEAAAABAAkAAAABAAEAACACAAkAAAACAAEAACABAAgAAAACAAAAAEABAAYAAAACAAAAAEABAAQAAAACAAAAAEACAAQAAAACAAAAAFACAAcAAAABAAEAABACAAgAAAACAAAAAFACAAMAAAABAAEAABABAAIAAAABAAAAAAACAAoAAAACAAAAACAEAAoAAAACAAAAACAFAAkAAAACAAEAAHAFAAoAAAABAAEAAHADAAoAAAABAAEAAGADAAkAAAABAAEAAEAEAAkAAAACAAAAAAAGAAkAAAACAAAAAHAGAAcAAAACAAAAAFAGAAUAAAACAAAAAHAGAAMAAAACAAAAAHAFAAgAAAABAAEAACAGAAgAAAABAAEAADAGAAYAAAACAAAAAFAGAAQAAAABAAEAADAFAAYAAAACAAEAAFAFAAQAAAABAAEAACAFAAMAAAACAAAAAGAFAAUAAAACAAEAAHAFAAcAAAACAAAAAEAGAAoAAAABAAAAADAGAAIAAAABAAAAAFADAAUAAAACAAAAABADAAYAAAACAAAAADAEAAUAAAABAAAAAFAEAAYAAAABAAAAADACAAUAAAACAAEAAGACAAYAAAACAAEAAEA=")
+tile_set = ExtResource("3_1lans")
+
+[node name="TileMapWalls2" type="TileMapLayer" parent="." unique_id=1746723201]
+tile_map_data = PackedByteArray("AAAEAAQAAAABAAEAAFAEAAUAAAABAAEAAHADAAQAAAACAAAAABADAAUAAAACAAAAADACAAQAAAABAAAAAAACAAUAAAABAAAAACAFAAUAAAABAAAAADAFAAQAAAABAAAAABAEAAcAAAABAAEAACAFAAcAAAABAAEAADAEAAgAAAACAAAAAGAFAAgAAAACAAAAAHAEAAkAAAABAAAAACAFAAkAAAABAAAAADA=")
+tile_set = ExtResource("3_1lans")
+
+[node name="door" parent="." unique_id=1078827551 instance=ExtResource("4_1lans")]
+position = Vector2(224, 128)
+candyGoal = 2
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=2001717360]
+
+[node name="Obstacle01" parent="Obstacles" unique_id=789374340 instance=ExtResource("4_eka1p")]
+position = Vector2(160, 416)
+
+[node name="Obstacle02" parent="Obstacles" unique_id=2023301626 instance=ExtResource("4_eka1p")]
+position = Vector2(160, 480)
+
+[node name="Obstacle03" parent="Obstacles" unique_id=1243618542 instance=ExtResource("4_eka1p")]
+position = Vector2(160, 544)
+
+[node name="Obstacle04" parent="Obstacles" unique_id=999452178 instance=ExtResource("4_eka1p")]
+position = Vector2(161, 608)
+
+[node name="Candies" type="Node2D" parent="." unique_id=1542139779]
+
+[node name="candy" parent="Candies" unique_id=249286557 instance=ExtResource("5_qiyo3")]
+position = Vector2(352, 416)
+
+[node name="candy2" parent="Candies" unique_id=1720554026 instance=ExtResource("5_qiyo3")]
+position = Vector2(224, 288)
+
+[node name="start" type="Node2D" parent="." unique_id=501328705]
+position = Vector2(288, 544)
+
+[node name="Entities" type="Node2D" parent="." unique_id=727673066]
