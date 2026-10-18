@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://dofs4uupekc0u" path="res://01_scenes/01_characters/00_player.gd" id="1_4tr5h"]
 [ext_resource type="Texture2D" uid="uid://c6exukfq5u0ak" path="res://00_assets/01_sprites/01_characters/SWE_ch_sprite_03final_nene_v01.png" id="2_4tr5h"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7knqm"]
+size = Vector2(32, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
 size = Vector2(32, 32)
 
@@ -13,6 +16,13 @@ script = ExtResource("1_4tr5h")
 position = Vector2(0, -40)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4tr5h")
+
+[node name="nene_area" type="Area2D" parent="." unique_id=1793863714]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nene_area" unique_id=388138210]
+shape = SubResource("RectangleShape2D_7knqm")
+debug_color = Color(0, 0.6, 0, 0.41960785)
 
 [node name="visionShapes" type="Node2D" parent="." unique_id=1690161393]
 
@@ -40,6 +50,7 @@ position = Vector2(0, 50)
 [node name="CSDown" type="CollisionShape2D" parent="visionShapes/visionDown" unique_id=287223550]
 shape = SubResource("RectangleShape2D_kw3nm")
 
+[connection signal="area_entered" from="nene_area" to="." method="_on_nene_area_area_entered"]
 [connection signal="area_entered" from="visionShapes/visionRight" to="." method="_on_vision_right_area_entered"]
 [connection signal="area_exited" from="visionShapes/visionRight" to="." method="_on_vision_right_area_exited"]
 [connection signal="area_entered" from="visionShapes/visionLeft" to="." method="_on_vision_left_area_entered"]
