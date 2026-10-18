@@ -9,6 +9,7 @@
 
 [node name="Level1" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition", "door")]
 script = ExtResource("1_csmek")
+levelNumber = 1
 initialPosition = NodePath("start")
 door = NodePath("door")
 level_max_movement = 21

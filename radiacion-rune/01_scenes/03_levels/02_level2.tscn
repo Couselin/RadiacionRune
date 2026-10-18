@@ -48,27 +48,10 @@ sources/0 = SubResource("TileSetAtlasSource_iyyyy")
 
 [node name="Level2" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition", "door")]
 script = ExtResource("1_ia65l")
+levelNumber = 2
 initialPosition = NodePath("start")
-level_max_movement = 7
 door = NodePath("door")
-
-[node name="StaticBody2D" type="Area2D" parent="." unique_id=1302734934]
-
-[node name="UpperWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1128302980]
-position = Vector2(544, 176)
-debug_color = Color(0.9942904, 0, 0.23168403, 0.41960785)
-
-[node name="BottomWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1232207395]
-position = Vector2(544, 466)
-debug_color = Color(0.99219686, 0, 0.2616491, 0.41960785)
-
-[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1793536677]
-position = Vector2(112, 416)
-debug_color = Color(0.9967461, 0, 0.18967506, 0.41960785)
-
-[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=398227252]
-position = Vector2(530, 414)
-debug_color = Color(0.9911713, 0, 0.27496788, 0.41960785)
+level_max_movement = 7
 
 [node name="TileMapFloor" type="TileMapLayer" parent="." unique_id=980492159]
 tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAMAAQABAAAAAAAGAAQAAQABAAAAAAAHAAUAAQABAAAAAAAGAAYAAQABAAAAAAA=")
