@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_smwkm"]
 [ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="2_yljem"]
 [ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="3_50eg6"]
-[ext_resource type="Texture2D" uid="uid://cc5vwa1yioe46" path="res://00_assets/01_sprites/02_sets/SWS_SPRITESHEET_walls.png" id="4_jncne"]
 [ext_resource type="PackedScene" uid="uid://cvq0ptqw1nyft" path="res://01_scenes/02_objects/obstacle.tscn" id="5_d38bd"]
+[ext_resource type="TileSet" uid="uid://dp0rqaseevpi" path="res://00_assets/01_sprites/02_sets/wallTileSet.tres" id="6_50eg6"]
 [ext_resource type="PackedScene" uid="uid://da1r5ww3sfjno" path="res://01_scenes/02_objects/candy.tscn" id="6_wpj7x"]
+[ext_resource type="PackedScene" uid="uid://d24cotg5ub53l" path="res://00_assets/01_sprites/04_props/door.tscn" id="6_yljem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
 size = Vector2(832, 32)
@@ -31,29 +32,10 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_r7ud5")
 sources/1 = SubResource("TileSetAtlasSource_2rb5d")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_arvv5"]
-texture = ExtResource("4_jncne")
-texture_region_size = Vector2i(64, 64)
-use_texture_padding = false
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, 29, 32, 29, 32, 32, 28, 32)
-2:0/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:0/size_in_atlas = Vector2i(1, 2)
-0:0/next_alternative_id = 2
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 32)
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -64, 32, -64, 32, 32, -32, 32)
-
-[sub_resource type="TileSet" id="TileSet_mcai8"]
-tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_arvv5")
-
-[node name="Level4" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition")]
+[node name="Level4" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition", "door")]
 script = ExtResource("1_smwkm")
 initialPosition = NodePath("start")
+door = NodePath("door")
 
 [node name="StaticBody2D" type="Area2D" parent="." unique_id=1302734934]
 
@@ -81,26 +63,31 @@ debug_color = Color(0.9911713, 0, 0.27496788, 0.41960785)
 tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAACAAcAAQAAAAAAAAACAAgAAQABAAAAAAACAAkAAQAAAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAADAAcAAQABAAAAAAADAAgAAQAAAAAAAAADAAkAAQABAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQABAAAAAAAEAAkAAQAAAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQABAAAAAAAFAAgAAQAAAAAAAAAFAAkAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_h4t55")
 
-[node name="TileMapWalls" type="TileMapLayer" parent="." unique_id=282268763]
-tile_set = SubResource("TileSet_mcai8")
-
 [node name="Obstacles" type="Node2D" parent="." unique_id=2001717360]
 
 [node name="Obstacle01" parent="Obstacles" unique_id=789374340 instance=ExtResource("5_d38bd")]
 position = Vector2(160, 416)
-collision_layer = 1
 
 [node name="Obstacle02" parent="Obstacles" unique_id=2023301626 instance=ExtResource("5_d38bd")]
 position = Vector2(160, 480)
-collision_layer = 1
 
 [node name="Obstacle03" parent="Obstacles" unique_id=1243618542 instance=ExtResource("5_d38bd")]
 position = Vector2(160, 544)
-collision_layer = 1
 
 [node name="Obstacle04" parent="Obstacles" unique_id=999452178 instance=ExtResource("5_d38bd")]
 position = Vector2(160, 608)
-collision_layer = 1
+
+[node name="TileMapWalls" type="TileMapLayer" parent="." unique_id=282268763]
+tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAABAAMAAAACAAAAAGABAAQAAAACAAAAAGABAAUAAAACAAAAAGABAAYAAAACAAAAAGABAAcAAAACAAAAAGABAAgAAAACAAAAAGABAAkAAAACAAAAAGACAAkAAAACAAEAAGAFAAkAAAACAAEAADAGAAkAAAABAAEAADACAAoAAAABAAEAAGABAAoAAAABAAAAAGAGAAoAAAABAAAAADAFAAoAAAACAAAAADAEAAoAAAACAAAAADADAAoAAAACAAAAADAEAAkAAAACAAAAABAFAAgAAAACAAAAAEAGAAgAAAACAAAAAFAGAAcAAAACAAAAAFAGAAYAAAACAAAAAFAGAAUAAAACAAAAAFAGAAQAAAACAAAAAFAGAAMAAAACAAAAAFAFAAcAAAACAAAAAEAFAAYAAAACAAAAAEAFAAUAAAACAAAAAEAFAAQAAAACAAAAAEAFAAMAAAACAAAAAEACAAMAAAACAAAAAHACAAQAAAACAAAAAHACAAUAAAACAAAAAHACAAYAAAACAAAAAHACAAcAAAACAAAAAHACAAgAAAACAAAAAHAGAAIAAAABAAAAABABAAIAAAABAAAAAAADAAQAAAACAAAAAAAEAAQAAAACAAAAAAAEAAUAAAACAAAAACADAAUAAAACAAAAACADAAYAAAACAAAAADA=")
+tile_set = ExtResource("6_50eg6")
+
+[node name="TileMapWalls2" type="TileMapLayer" parent="." unique_id=261324154]
+tile_map_data = PackedByteArray("AAACAAIAAAABAAAAAFAEAAIAAAAAAAAAAAAFAAIAAAABAAAAAAABAAMAAAACAAAAAGABAAQAAAACAAAAAGABAAUAAAACAAAAAGABAAYAAAACAAAAAGABAAcAAAACAAAAAGABAAgAAAACAAAAAGABAAkAAAACAAAAAGACAAkAAAACAAEAAGAFAAkAAAACAAEAADAGAAkAAAABAAEAADACAAoAAAABAAEAAGABAAoAAAABAAAAAGAGAAoAAAABAAAAADAFAAoAAAACAAAAADAEAAoAAAACAAAAADADAAoAAAACAAAAADAEAAkAAAACAAAAABAFAAgAAAABAAEAABAGAAgAAAACAAAAAFAGAAcAAAACAAAAAFAGAAYAAAACAAAAAFAGAAUAAAABAAEAADAGAAQAAAACAAAAAFAGAAMAAAACAAAAAFAFAAcAAAACAAAAAFAFAAYAAAACAAAAADAFAAUAAAACAAEAADAFAAQAAAACAAAAAEAFAAMAAAACAAAAAEACAAMAAAACAAAAAHACAAQAAAACAAAAAHACAAUAAAACAAAAAHACAAYAAAACAAAAAHACAAcAAAACAAAAAHACAAgAAAACAAAAAHAGAAIAAAABAAAAABABAAIAAAABAAAAAAADAAQAAAACAAAAAAAEAAQAAAACAAAAAAAEAAUAAAACAAAAACADAAUAAAACAAAAABADAAYAAAACAAAAADAEAAcAAAACAAAAAEAEAAgAAAABAAEAAAADAAkAAAACAAAAABA=")
+tile_set = ExtResource("6_50eg6")
+
+[node name="door" parent="." unique_id=1078827551 instance=ExtResource("6_yljem")]
+position = Vector2(224, 128)
+candyGoal = 2
 
 [node name="Candies" type="Node2D" parent="." unique_id=1542139779]
 
