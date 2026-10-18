@@ -3,10 +3,26 @@ extends Node2D
 @onready var playerRef = preload("res://01_scenes/01_characters/00_player.tscn")
 @export var initialPosition: Node2D
 @export var door: Door
+@onready var obstacleRef = preload("res://01_scenes/02_objects/obstacle.tscn")
 
 @export var myDic: Dictionary[Array, Texture2D] = {
-	[Vector2.LEFT, Vector2.RIGHT]: preload("res://00_assets/01_sprites/04_props/SWS_pr_sprite_placeholder_caramelo_v01_001.png"),
-	[Vector2.DOWN, Vector2.RIGHT]: preload("res://00_assets/01_sprites/03_ui/99_test/LowPolyCat.png")
+	[Vector2.ZERO, Vector2.RIGHT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWE_pr_sprite_02coloreedr_telaRasgadoHorizontaDerecha_v01_001.png"),
+	[Vector2.ZERO, Vector2.UP]: preload("res://00_assets/01_sprites/01_characters/00_band/SWE_pr_sprite_02coloreedr_telaRasgadoArriba_v01_001.png"),
+	[Vector2.ZERO, Vector2.LEFT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWE_pr_sprite_02coloreedr_telaRasgadoHorizontalzquierda_v01_001.png"),
+	[Vector2.ZERO, Vector2.DOWN]: preload("res://00_assets/01_sprites/01_characters/00_band/SWE_pr_sprite_02coloreedr_telaRasgadoAbajo_v01_001.png"),
+	[Vector2.LEFT, Vector2.RIGHT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaRectaHorizontal_v01_002.png"),
+	[Vector2.LEFT, Vector2.UP]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaEsquinaDerechaAbajo_v01_001.png"),
+	[Vector2.LEFT, Vector2.DOWN]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaEsquinaDerechaArriba_v01.png"),
+	[Vector2.DOWN, Vector2.RIGHT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaEsquinaDerechaArriba_v01_003.png"),
+	[Vector2.DOWN, Vector2.UP]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaRectaVertical_v01_003.png"),
+	[Vector2.DOWN, Vector2.LEFT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaEsquinaDerechaArriba_v01.png"),
+	[Vector2.UP, Vector2.RIGHT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaEsquinaIzquierdaAbajo_v01_001.png"),
+	[Vector2.UP, Vector2.LEFT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaEsquinaDerechaAbajo_v01_001.png"),
+	[Vector2.UP, Vector2.DOWN]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaRectaVertical_v01_003.png"),
+	[Vector2.RIGHT, Vector2.UP]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaEsquinaIzquierdaAbajo_v01_001.png"),
+	[Vector2.RIGHT, Vector2.LEFT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaRectaHorizontal_v01_002.png"),
+	[Vector2.RIGHT, Vector2.DOWN]: preload("res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaEsquinaDerechaArriba_v01_003.png"),
+
 }
 
 
@@ -21,14 +37,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func createBands(from: Vector2, to: Vector2, current_position: Vector2) -> void:
-	var image = Sprite2D.new()
+	var bandObstacle = obstacleRef.instantiate() as Obstacle
 	for key in myDic:
 		if key == [from, to]:
-			print('hola')
-			print(myDic[[from, to]])
-			image.texture = myDic[[from, to]]
-			image.position = current_position
-			add_child(image)
+			bandObstacle.set_band(myDic[[from, to]], current_position)
+			add_child(bandObstacle)
 
 func collected_one_candy(candyNumber):
 	door.set_count_candy(door.candyGoal - candyNumber)

@@ -7,7 +7,6 @@
 size = Vector2(24, 24)
 
 [node name="Obstacle" type="Area2D" unique_id=789374340 node_paths=PackedStringArray("sprite")]
-collision_layer = 4
 script = ExtResource("1_dkd0n")
 image = ExtResource("1_cavji")
 sprite = NodePath("Sprite2D")
