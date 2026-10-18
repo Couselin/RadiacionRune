@@ -1,64 +1,26 @@
 [gd_scene format=4 uid="uid://cucypoo8f0h8p"]
 
 [ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_csmek"]
-[ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="2_eka1p"]
-[ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="3_qiyo3"]
+[ext_resource type="TileSet" uid="uid://ea77inpw1cdd" path="res://00_assets/01_sprites/02_sets/floorTileSet.tres" id="2_qiyo3"]
+[ext_resource type="TileSet" uid="uid://dp0rqaseevpi" path="res://00_assets/01_sprites/02_sets/wallTileSet.tres" id="3_1lans"]
 [ext_resource type="PackedScene" uid="uid://cvq0ptqw1nyft" path="res://01_scenes/02_objects/obstacle.tscn" id="4_eka1p"]
 [ext_resource type="PackedScene" uid="uid://da1r5ww3sfjno" path="res://01_scenes/02_objects/candy.tscn" id="5_qiyo3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
-size = Vector2(832, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7mgy"]
-size = Vector2(32, 452)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7ud5"]
-texture = ExtResource("2_eka1p")
-0:0/size_in_atlas = Vector2i(4, 4)
-0:0/0 = 0
-4:0/size_in_atlas = Vector2i(4, 4)
-4:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rb5d"]
-texture = ExtResource("3_qiyo3")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_h4t55"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_r7ud5")
-sources/1 = SubResource("TileSetAtlasSource_2rb5d")
 
 [node name="Level1" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition")]
 script = ExtResource("1_csmek")
 initialPosition = NodePath("start")
 
-[node name="StaticBody2D" type="Area2D" parent="." unique_id=1302734934]
-
-[node name="UpperWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1128302980]
-position = Vector2(544, 176)
-shape = SubResource("RectangleShape2D_h4t55")
-debug_color = Color(0.9942904, 0, 0.23168403, 0.41960785)
-
-[node name="BottomWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1232207395]
-position = Vector2(544, 656)
-shape = SubResource("RectangleShape2D_h4t55")
-debug_color = Color(0.99219686, 0, 0.2616491, 0.41960785)
-
-[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1793536677]
-position = Vector2(112, 416)
-shape = SubResource("RectangleShape2D_w7mgy")
-debug_color = Color(0.9967461, 0, 0.18967506, 0.41960785)
-
-[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=398227252]
-position = Vector2(400, 414)
-shape = SubResource("RectangleShape2D_w7mgy")
-debug_color = Color(0.9911713, 0, 0.27496788, 0.41960785)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=980492159]
 tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAACAAcAAQAAAAAAAAACAAgAAQABAAAAAAACAAkAAQAAAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAADAAcAAQABAAAAAAADAAgAAQAAAAAAAAADAAkAAQABAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQABAAAAAAAEAAkAAQAAAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQABAAAAAAAFAAgAAQAAAAAAAAAFAAkAAQABAAAAAAA=")
-tile_set = SubResource("TileSet_h4t55")
+tile_set = ExtResource("2_qiyo3")
+
+[node name="TileMapWalls" type="TileMapLayer" parent="." unique_id=282268763]
+tile_map_data = PackedByteArray("AAACAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAABAAoAAAABAAAAACABAAMAAAABAAEAAAABAAUAAAACAAAAAGABAAcAAAABAAEAAAABAAkAAAABAAEAACACAAkAAAACAAEAACABAAgAAAACAAAAAEABAAYAAAACAAAAAEABAAQAAAACAAAAAEACAAQAAAACAAAAAFACAAcAAAABAAEAABACAAgAAAACAAAAAFACAAMAAAABAAEAABABAAIAAAABAAAAAAACAAoAAAACAAAAACAEAAoAAAACAAAAACAFAAkAAAACAAEAAHAFAAoAAAABAAEAAHADAAoAAAABAAEAAGADAAkAAAABAAEAAEAEAAkAAAACAAAAAAAGAAkAAAACAAAAAHAGAAcAAAACAAAAAFAGAAUAAAACAAAAAHAGAAMAAAACAAAAAHAFAAgAAAABAAEAACAGAAgAAAABAAEAADAGAAYAAAACAAAAAFAGAAQAAAABAAEAADAFAAYAAAACAAEAAFAFAAQAAAABAAEAACAFAAMAAAACAAAAAGAFAAUAAAACAAEAAHAFAAcAAAACAAAAAEAGAAoAAAABAAAAADAGAAIAAAABAAAAAFADAAUAAAACAAAAABADAAYAAAACAAAAADAEAAUAAAABAAAAAFAEAAYAAAABAAAAADACAAUAAAACAAEAAGACAAYAAAACAAEAAEA=")
+tile_set = ExtResource("3_1lans")
+
+[node name="TileMapWalls2" type="TileMapLayer" parent="." unique_id=1746723201]
+tile_map_data = PackedByteArray("AAAEAAQAAAABAAEAAFAEAAUAAAABAAEAAHADAAQAAAACAAAAABADAAUAAAACAAAAADACAAQAAAABAAAAAAACAAUAAAABAAAAACAFAAUAAAABAAAAADAFAAQAAAABAAAAABAEAAcAAAABAAEAACAFAAcAAAABAAEAADAEAAgAAAACAAAAAGAFAAgAAAACAAAAAHAEAAkAAAABAAAAACAFAAkAAAABAAAAADA=")
+tile_set = ExtResource("3_1lans")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=2001717360]
 
@@ -75,7 +37,7 @@ position = Vector2(160, 544)
 collision_layer = 1
 
 [node name="Obstacle04" parent="Obstacles" unique_id=999452178 instance=ExtResource("4_eka1p")]
-position = Vector2(160, 608)
+position = Vector2(161, 608)
 collision_layer = 1
 
 [node name="Candies" type="Node2D" parent="." unique_id=1542139779]

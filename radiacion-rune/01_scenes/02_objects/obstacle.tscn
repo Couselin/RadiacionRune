@@ -4,11 +4,13 @@
 [ext_resource type="Script" uid="uid://benjtv1bkxpau" path="res://01_scenes/02_objects/obstacle.gd" id="1_dkd0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
-size = Vector2(32, 32)
+size = Vector2(24, 24)
 
-[node name="Obstacle" type="Area2D" unique_id=789374340]
+[node name="Obstacle" type="Area2D" unique_id=789374340 node_paths=PackedStringArray("sprite")]
 collision_layer = 4
 script = ExtResource("1_dkd0n")
+image = ExtResource("1_cavji")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453409406]
 texture = ExtResource("1_cavji")
