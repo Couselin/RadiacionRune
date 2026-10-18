@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://damyrs75dxgk3"]
+
+[ext_resource type="Script" uid="uid://b16jc2upr2aua" path="res://01_scenes/02_objects/button_wall.gd" id="1_ja8hl"]
+[ext_resource type="Texture2D" uid="uid://ddorstq6diffa" path="res://00_assets/01_sprites/04_props/button/SWE_floorButton_tile01.png" id="2_b2f0b"]
+[ext_resource type="Texture2D" uid="uid://cni0yfoxkijpu" path="res://00_assets/01_sprites/04_props/button/SWE_floorButton_tile02.png" id="3_brtlt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
+size = Vector2(24, 24)
+
+[node name="buttonWall" type="Area2D" unique_id=478239553]
+collision_layer = 8
+script = ExtResource("1_ja8hl")
+images = Array[Texture2D]([ExtResource("2_b2f0b"), ExtResource("3_brtlt")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=340640856]
+texture = ExtResource("2_b2f0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=295578627]
+shape = SubResource("RectangleShape2D_kw3nm")
