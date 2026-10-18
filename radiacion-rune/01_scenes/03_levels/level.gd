@@ -4,6 +4,7 @@ extends Node2D
 @export var initialPosition: Node2D
 @export var door: Door
 @onready var obstacleRef = preload("res://01_scenes/02_objects/obstacle.tscn")
+@export var level_max_movement := 5
 
 @export var myDic: Dictionary[Array, Texture2D] = {
 	[Vector2.ZERO, Vector2.RIGHT]: preload("res://00_assets/01_sprites/01_characters/00_band/SWE_pr_sprite_02coloreedr_telaRasgadoHorizontaDerecha_v01_001.png"),
@@ -30,7 +31,7 @@ extends Node2D
 func _ready() -> void:
 	var playerInstance := playerRef.instantiate() as Player
 	$Entities.add_child(playerInstance)
-	playerInstance.set_player(initialPosition.position)
+	playerInstance.set_player(initialPosition.position, level_max_movement)
 	print('hola')
 	playerInstance.bandDirections.connect(createBands)
 	playerInstance.collectOneCandy.connect(collected_one_candy)
