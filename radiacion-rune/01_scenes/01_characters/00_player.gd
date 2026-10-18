@@ -112,4 +112,8 @@ func _on_nene_area_area_entered(area: Area2D) -> void:
 		collectOneCandy.emit(collectedCandy)
 		area.queue_free()
 	if area.get_collision_layer_value(8):
-		get_tree().change_scene_to_file("res://01_scenes/04_screens/level_success.tscn")
+		call_deferred('go_to_level_success')
+
+
+func go_to_level_success():
+	get_tree().change_scene_to_file("res://01_scenes/04_screens/level_success.tscn")
