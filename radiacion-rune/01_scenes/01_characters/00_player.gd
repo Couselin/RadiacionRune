@@ -5,21 +5,45 @@ var goUp: bool = true
 var goDown: bool = true
 var goRight: bool = true
 var goLeft: bool = true
+var previous_position: Vector2
+var new_position: Vector2
 
 var collectedCandy: int = 0
 
 func _ready() -> void:
 	pass
 
+func set_player(given_pos) -> void:
+	position = given_pos
+	print(position)
+
+
+func create_band() -> void:
+	if previous_position == Vector2.ZERO:
+		print("Direccion anterior: " + str(Vector2.ZERO))
+		print("Direccion nueva: "+str((new_position - position) / 64))
+		print("///////////////////")
+	else:
+		print("Direccion anterior: " + str((position - previous_position) / 64) )
+		print("Direccion nueva: "+str((new_position - position) / 64))
+		print("///////////////////")
+	previous_position = position
+	position = new_position
+	
+	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("right") and goRight==true:
-		position.x = position.x + 64
+		new_position = position + Vector2(64, 0)
+		create_band()
 	if Input.is_action_just_pressed("left") and goLeft==true:
-		position.x = position.x - 64
+		new_position = position - Vector2(64, 0)
+		create_band()
 	if Input.is_action_just_pressed("up") and goUp==true:
-		position.y = position.y - 64
+		new_position = position - Vector2(0, 64)
+		create_band()
 	if Input.is_action_just_pressed("down") and goDown==true:
-		position.y = position.y + 64
+		new_position = position + Vector2(0, 64)
+		create_band()
 	pass
 
 

@@ -8,7 +8,8 @@ extends Node2D
 func _ready() -> void:
 	var playerInstance = playerRef.instantiate() as Player
 	$Entities.add_child(playerInstance)
-	playerInstance.position = initialPosition.position
+	playerInstance.set_player(initialPosition.position)
+	print('hola')
 	pass # Replace with function body.
 
 
