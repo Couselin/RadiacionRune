@@ -10,6 +10,9 @@ var new_position: Vector2
 
 var collectedCandy: int = 0
 
+signal bandDirections(from: Vector2, to: Vector2, current_position: Vector2)
+
+
 func _ready() -> void:
 	pass
 
@@ -23,10 +26,12 @@ func create_band() -> void:
 		print("Direccion anterior: " + str(Vector2.ZERO))
 		print("Direccion nueva: "+str((new_position - position) / 64))
 		print("///////////////////")
+		bandDirections.emit(Vector2.ZERO, (new_position - position) / 64, position)
 	else:
-		print("Direccion anterior: " + str((position - previous_position) / 64) )
+		print("Direccion anterior: " + str((previous_position - position) / 64) )
 		print("Direccion nueva: "+str((new_position - position) / 64))
 		print("///////////////////")
+		bandDirections.emit((previous_position - position) / 64, (new_position - position) / 64, position)
 	previous_position = position
 	position = new_position
 	
