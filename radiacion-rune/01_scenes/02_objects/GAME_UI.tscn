@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://o0q1hhu6gxqm"]
+
+[ext_resource type="Texture2D" uid="uid://b1njgj4ufs35d" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_timer_v01.png" id="1_wdmtj"]
+[ext_resource type="FontFile" uid="uid://pw8vq8j08se7" path="res://00_assets/02_fonts/Montaplay Demo.otf" id="2_2ih3i"]
+[ext_resource type="FontFile" uid="uid://q28kkyqc8bkx" path="res://01_scenes/04_screens/Montaplay Demo.otf" id="3_ufd6w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_arvv5"]
+font = ExtResource("2_2ih3i")
+font_size = 71
+font_color = Color(0.99215686, 0.58431375, 0.12941177, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7knqm"]
+font = ExtResource("2_2ih3i")
+font_size = 71
+font_color = Color(0.3019608, 0.2509804, 0.44313726, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_brdrh"]
+font = ExtResource("3_ufd6w")
+font_size = 91
+
+[node name="gameUI" type="TextureRect" unique_id=569615528]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 952.0
+offset_top = 32.0
+offset_right = 1240.0
+offset_bottom = 680.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wdmtj")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="ButtonText" type="Label" parent="." unique_id=643933175]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 36.0
+offset_right = 79.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "P: RESET"
+label_settings = SubResource("LabelSettings_arvv5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonText2" type="Label" parent="." unique_id=1639153819]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 108.0
+offset_right = 94.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "WASD:
+MOVEMENT"
+label_settings = SubResource("LabelSettings_7knqm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=2030670899]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 144.0
+offset_right = 164.0
+offset_bottom = 243.0
+text = ":)"
+label_settings = SubResource("LabelSettings_brdrh")

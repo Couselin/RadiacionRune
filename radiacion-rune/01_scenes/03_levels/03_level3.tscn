@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_ab1j1"]
 [ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="2_2rvq0"]
+[ext_resource type="Texture2D" uid="uid://bqp6f5w1avo3f" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_full_patternBackground_v01.png" id="2_eqhuh"]
 [ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="3_rqc8i"]
 [ext_resource type="TileSet" uid="uid://dp0rqaseevpi" path="res://00_assets/01_sprites/02_sets/wallTileSet.tres" id="4_rqc8i"]
 [ext_resource type="PackedScene" uid="uid://cvq0ptqw1nyft" path="res://01_scenes/02_objects/obstacle.tscn" id="5_rqc8i"]
+[ext_resource type="PackedScene" uid="uid://o0q1hhu6gxqm" path="res://01_scenes/02_objects/GAME_UI.tscn" id="7_tl883"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7ud5"]
 texture = ExtResource("2_2rvq0")
@@ -28,6 +30,11 @@ sources/1 = SubResource("TileSetAtlasSource_2rb5d")
 script = ExtResource("1_ab1j1")
 levelNumber = 3
 initialPosition = NodePath("start")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1680593324]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_eqhuh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=980492159]
 tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAYAAQAAAAAAAAAGAAQAAQABAAAAAAAHAAUAAQABAAAAAAAGAAYAAQABAAAAAAACAAcAAQAAAAAAAAACAAgAAQABAAAAAAADAAcAAQABAAAAAAAEAAgAAQABAAAAAAAFAAcAAQABAAAAAAAGAAgAAQABAAAAAAAHAAcAAQABAAAAAAAIAAgAAQABAAAAAAAJAAcAAQABAAAAAAAKAAgAAQABAAAAAAAKAAYAAQABAAAAAAAJAAUAAQABAAAAAAAKAAQAAQABAAAAAAAIAAQAAQABAAAAAAAIAAYAAQABAAAAAAADAAgAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAcAAQAAAAAAAAAJAAYAAQAAAAAAAAAKAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAQAAQAAAAAAAAA=")
@@ -77,3 +84,5 @@ position = Vector2(288, 416)
 
 [node name="Obstacle10" parent="Obstacles" unique_id=930765070 instance=ExtResource("5_rqc8i")]
 position = Vector2(224, 352)
+
+[node name="gameUI" parent="." unique_id=569615528 instance=ExtResource("7_tl883")]

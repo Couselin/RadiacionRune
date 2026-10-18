@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://ca7jn55n5fred"]
 
 [ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_ia65l"]
+[ext_resource type="Texture2D" uid="uid://bqp6f5w1avo3f" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_full_patternBackground_v01.png" id="2_46bnf"]
 [ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="2_p5cph"]
 [ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="3_o7s33"]
+[ext_resource type="PackedScene" uid="uid://o0q1hhu6gxqm" path="res://01_scenes/02_objects/GAME_UI.tscn" id="3_phnof"]
 [ext_resource type="PackedScene" uid="uid://cvq0ptqw1nyft" path="res://01_scenes/02_objects/obstacle.tscn" id="4_o7s33"]
 [ext_resource type="Texture2D" uid="uid://cc5vwa1yioe46" path="res://00_assets/01_sprites/02_sets/SWS_SPRITESHEET_walls.png" id="4_o184v"]
 [ext_resource type="PackedScene" uid="uid://da1r5ww3sfjno" path="res://01_scenes/02_objects/candy.tscn" id="5_o184v"]
@@ -52,6 +54,13 @@ levelNumber = 2
 initialPosition = NodePath("start")
 door = NodePath("door")
 level_max_movement = 7
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1905384434]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_46bnf")
+
+[node name="gameUI" parent="." unique_id=569615528 instance=ExtResource("3_phnof")]
 
 [node name="TileMapFloor" type="TileMapLayer" parent="." unique_id=980492159]
 tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAMAAQABAAAAAAAGAAQAAQABAAAAAAAHAAUAAQABAAAAAAAGAAYAAQABAAAAAAA=")
