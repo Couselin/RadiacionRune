@@ -10,13 +10,8 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="CustomButton" type="TextureButton" unique_id=997814475]
-custom_minimum_size = Vector2(50, 50)
-custom_maximum_size = Vector2(700, 700)
-propagate_maximum_size = true
-offset_left = 236.0
-offset_top = 76.0
-offset_right = 300.0
-offset_bottom = 140.0
+offset_right = 235.0
+offset_bottom = 61.0
 texture_normal = ExtResource("1_vyvsa")
 texture_pressed = ExtResource("2_3gfoo")
 texture_hover = ExtResource("3_gjluc")
@@ -24,12 +19,19 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("4_3gfoo")
 button_text = "JARJARJAR"
+size_text = 30
 
 [node name="ButtonText" type="Label" parent="." unique_id=57002831]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -11.5
+offset_right = 67.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Texto de ejemplo"

@@ -6,6 +6,8 @@ var goDown: bool = true
 var goRight: bool = true
 var goLeft: bool = true
 
+var collectedCandy: int = 0
+
 func _ready() -> void:
 	pass
 
@@ -49,3 +51,13 @@ func _on_vision_up_area_exited(_area: Area2D) -> void:
 func _on_vision_down_area_exited(_area: Area2D) -> void:
 	goDown = true
 	pass 
+	
+
+
+
+func _on_nene_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("candy"):
+		collectedCandy += 1
+		print(collectedCandy)
+		area.queue_free()
+	pass
