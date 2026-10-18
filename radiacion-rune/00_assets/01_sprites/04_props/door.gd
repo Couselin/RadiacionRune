@@ -9,6 +9,7 @@ var abierta = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(collision_layer)
 	sprite.texture = images[0]
 	$Label.text = str(candyGoal)
 	pass # Replace with function body.
@@ -19,7 +20,9 @@ func _process(_delta: float) -> void:
 
 func open_door():
 	sprite.texture = images[1]
-	collision_layer = 8
+	set_collision_layer_value(1, false)
+	set_collision_layer_value(8, true)
+	print(collision_layer)
 	
 func set_count_candy(number):
 	$Label.text = str(number)

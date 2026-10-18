@@ -108,8 +108,12 @@ func _on_vision_down_body_exited(_body) -> void:
 
 #NENE AREA CAN DETECT THINGS FROM OTHER LAYERS (LIKE CANDIES IN LAYER2)
 func _on_nene_area_area_entered(area: Area2D) -> void:
+	print(area)
 	if area.is_in_group("candy"):
 		collectedCandy += 1
 		collectOneCandy.emit(collectedCandy)
 		area.queue_free()
+	if area.get_collision_layer_value(8):
+		get_tree().change_scene_to_file("res://01_scenes/04_screens/level_success.tscn")
+		
 	pass
