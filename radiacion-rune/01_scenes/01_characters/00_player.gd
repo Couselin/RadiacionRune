@@ -5,22 +5,49 @@ var goUp: bool = true
 var goDown: bool = true
 var goRight: bool = true
 var goLeft: bool = true
+var previous_position: Vector2
+var new_position: Vector2
+var max_movements := 999
+var movements := 0
 
 var collectedCandy: int = 0
+
+signal bandDirections(from: Vector2, to: Vector2, current_position: Vector2)
+signal collectOneCandy(int)
 
 func _ready() -> void:
 	pass
 
+func set_player(given_pos: Vector2, level_max_movement: int) -> void:
+	position = given_pos
+	print(position)
+	max_movements = level_max_movement
+
+
+func create_band() -> void:
+	if previous_position == Vector2.ZERO:
+		bandDirections.emit(Vector2.ZERO, (new_position - position) / 64, position)
+	else:
+		bandDirections.emit((previous_position - position) / 64, (new_position - position) / 64, position)
+	previous_position = position
+	position = new_position
+	movements += 1
+	
+	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("right") and goRight==true:
-		position.x = position.x + 64
-	if Input.is_action_just_pressed("left") and goLeft==true:
-		position.x = position.x - 64
-	if Input.is_action_just_pressed("up") and goUp==true:
-		position.y = position.y - 64
-	if Input.is_action_just_pressed("down") and goDown==true:
-		position.y = position.y + 64
-	pass
+	if movements < max_movements:
+		if Input.is_action_just_pressed("right") and goRight==true:
+			new_position = position + Vector2(64, 0)
+			create_band()
+		if Input.is_action_just_pressed("left") and goLeft==true:
+			new_position = position - Vector2(64, 0)
+			create_band()
+		if Input.is_action_just_pressed("up") and goUp==true:
+			new_position = position - Vector2(0, 64)
+			create_band()
+		if Input.is_action_just_pressed("down") and goDown==true:
+			new_position = position + Vector2(0, 64)
+			create_band()
 
 
 
@@ -79,8 +106,14 @@ func _on_vision_down_body_exited(_body) -> void:
 
 #NENE AREA CAN DETECT THINGS FROM OTHER LAYERS (LIKE CANDIES IN LAYER2)
 func _on_nene_area_area_entered(area: Area2D) -> void:
+	print(area)
 	if area.is_in_group("candy"):
 		collectedCandy += 1
-		print(collectedCandy)
+		collectOneCandy.emit(collectedCandy)
 		area.queue_free()
-	pass
+	if area.get_collision_layer_value(8):
+		call_deferred('go_to_level_success')
+
+
+func go_to_level_success():
+	get_tree().change_scene_to_file("res://01_scenes/04_screens/level_success.tscn")

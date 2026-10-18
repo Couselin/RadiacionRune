@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="2_p5cph"]
 [ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="3_o7s33"]
 [ext_resource type="PackedScene" uid="uid://cvq0ptqw1nyft" path="res://01_scenes/02_objects/obstacle.tscn" id="4_o7s33"]
+[ext_resource type="Texture2D" uid="uid://cc5vwa1yioe46" path="res://00_assets/01_sprites/02_sets/SWS_SPRITESHEET_walls.png" id="4_o184v"]
 [ext_resource type="PackedScene" uid="uid://da1r5ww3sfjno" path="res://01_scenes/02_objects/candy.tscn" id="5_o184v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
@@ -30,9 +31,30 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_r7ud5")
 sources/1 = SubResource("TileSetAtlasSource_2rb5d")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iyyyy"]
+texture = ExtResource("4_o184v")
+texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, 29, 32, 29, 32, 32, 28, 32)
+2:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 32)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -64, 32, -64, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_46bnf"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_iyyyy")
+
 [node name="Level2" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition")]
 script = ExtResource("1_ia65l")
 initialPosition = NodePath("start")
+level_max_movement = 7
 
 [node name="StaticBody2D" type="Area2D" parent="." unique_id=1302734934]
 
@@ -56,31 +78,29 @@ position = Vector2(530, 414)
 shape = SubResource("RectangleShape2D_w7mgy")
 debug_color = Color(0.9911713, 0, 0.27496788, 0.41960785)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=980492159]
+[node name="TileMapFloor" type="TileMapLayer" parent="." unique_id=980492159]
 tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAMAAQABAAAAAAAGAAQAAQABAAAAAAAHAAUAAQABAAAAAAAGAAYAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_h4t55")
+
+[node name="TileMapWalls" type="TileMapLayer" parent="." unique_id=1053568802]
+tile_set = SubResource("TileSet_46bnf")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=2116241864]
 
 [node name="Obstacle01" parent="Obstacles" unique_id=789374340 instance=ExtResource("4_o7s33")]
 position = Vector2(160, 224)
-collision_layer = 1
 
 [node name="Obstacle02" parent="Obstacles" unique_id=996548641 instance=ExtResource("4_o7s33")]
 position = Vector2(160, 288)
-collision_layer = 1
 
 [node name="Obstacle03" parent="Obstacles" unique_id=1575683252 instance=ExtResource("4_o7s33")]
 position = Vector2(416, 224)
-collision_layer = 1
 
 [node name="Obstacle04" parent="Obstacles" unique_id=1171766444 instance=ExtResource("4_o7s33")]
 position = Vector2(352, 352)
-collision_layer = 1
 
 [node name="Obstacle05" parent="Obstacles" unique_id=2115883730 instance=ExtResource("4_o7s33")]
 position = Vector2(480, 416)
-collision_layer = 1
 
 [node name="Candies" type="Node2D" parent="." unique_id=1717927106]
 

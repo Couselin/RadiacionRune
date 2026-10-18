@@ -1,0 +1,116 @@
+[gd_scene format=4 uid="uid://1ayt6mj8msac"]
+
+[ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_smwkm"]
+[ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="2_yljem"]
+[ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="3_50eg6"]
+[ext_resource type="Texture2D" uid="uid://cc5vwa1yioe46" path="res://00_assets/01_sprites/02_sets/SWS_SPRITESHEET_walls.png" id="4_jncne"]
+[ext_resource type="PackedScene" uid="uid://cvq0ptqw1nyft" path="res://01_scenes/02_objects/obstacle.tscn" id="5_d38bd"]
+[ext_resource type="PackedScene" uid="uid://da1r5ww3sfjno" path="res://01_scenes/02_objects/candy.tscn" id="6_wpj7x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
+size = Vector2(832, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7mgy"]
+size = Vector2(32, 452)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7ud5"]
+texture = ExtResource("2_yljem")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rb5d"]
+texture = ExtResource("3_50eg6")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h4t55"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_r7ud5")
+sources/1 = SubResource("TileSetAtlasSource_2rb5d")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_arvv5"]
+texture = ExtResource("4_jncne")
+texture_region_size = Vector2i(64, 64)
+use_texture_padding = false
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(28, 29, 32, 29, 32, 32, 28, 32)
+2:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 32)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -64, 32, -64, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_mcai8"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_arvv5")
+
+[node name="Level4" type="Node2D" unique_id=1624179887 node_paths=PackedStringArray("initialPosition")]
+script = ExtResource("1_smwkm")
+initialPosition = NodePath("start")
+
+[node name="StaticBody2D" type="Area2D" parent="." unique_id=1302734934]
+
+[node name="UpperWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1128302980]
+position = Vector2(544, 176)
+shape = SubResource("RectangleShape2D_h4t55")
+debug_color = Color(0.9942904, 0, 0.23168403, 0.41960785)
+
+[node name="BottomWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1232207395]
+position = Vector2(544, 656)
+shape = SubResource("RectangleShape2D_h4t55")
+debug_color = Color(0.99219686, 0, 0.2616491, 0.41960785)
+
+[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=1793536677]
+position = Vector2(112, 416)
+shape = SubResource("RectangleShape2D_w7mgy")
+debug_color = Color(0.9967461, 0, 0.18967506, 0.41960785)
+
+[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D" unique_id=398227252]
+position = Vector2(400, 414)
+shape = SubResource("RectangleShape2D_w7mgy")
+debug_color = Color(0.9911713, 0, 0.27496788, 0.41960785)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=980492159]
+tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAACAAcAAQAAAAAAAAACAAgAAQABAAAAAAACAAkAAQAAAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAADAAcAAQABAAAAAAADAAgAAQAAAAAAAAADAAkAAQABAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQABAAAAAAAEAAkAAQAAAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQABAAAAAAAFAAgAAQAAAAAAAAAFAAkAAQABAAAAAAA=")
+tile_set = SubResource("TileSet_h4t55")
+
+[node name="TileMapWalls" type="TileMapLayer" parent="." unique_id=282268763]
+tile_set = SubResource("TileSet_mcai8")
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=2001717360]
+
+[node name="Obstacle01" parent="Obstacles" unique_id=789374340 instance=ExtResource("5_d38bd")]
+position = Vector2(160, 416)
+collision_layer = 1
+
+[node name="Obstacle02" parent="Obstacles" unique_id=2023301626 instance=ExtResource("5_d38bd")]
+position = Vector2(160, 480)
+collision_layer = 1
+
+[node name="Obstacle03" parent="Obstacles" unique_id=1243618542 instance=ExtResource("5_d38bd")]
+position = Vector2(160, 544)
+collision_layer = 1
+
+[node name="Obstacle04" parent="Obstacles" unique_id=999452178 instance=ExtResource("5_d38bd")]
+position = Vector2(160, 608)
+collision_layer = 1
+
+[node name="Candies" type="Node2D" parent="." unique_id=1542139779]
+
+[node name="candy" parent="Candies" unique_id=249286557 instance=ExtResource("6_wpj7x")]
+position = Vector2(352, 416)
+
+[node name="candy2" parent="Candies" unique_id=1720554026 instance=ExtResource("6_wpj7x")]
+position = Vector2(224, 288)
+
+[node name="start" type="Node2D" parent="." unique_id=501328705]
+position = Vector2(288, 544)
+
+[node name="Entities" type="Node2D" parent="." unique_id=727673066]

@@ -7,9 +7,10 @@
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
-size = Vector2(32, 32)
+size = Vector2(24, 24)
 
 [node name="Player" type="Node2D" unique_id=46397885]
+z_index = 1
 script = ExtResource("1_4tr5h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=463945829]
@@ -18,7 +19,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4tr5h")
 
 [node name="nene_area" type="Area2D" parent="." unique_id=1793863714]
-collision_mask = 7
+collision_mask = 135
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nene_area" unique_id=388138210]
 shape = SubResource("RectangleShape2D_7knqm")
@@ -27,25 +28,25 @@ debug_color = Color(0, 0.6, 0, 0.41960785)
 [node name="visionShapes" type="Node2D" parent="." unique_id=1690161393]
 
 [node name="visionRight" type="Area2D" parent="visionShapes" unique_id=953771003]
-position = Vector2(50, 0)
+position = Vector2(44, 0)
 
 [node name="CSRight" type="CollisionShape2D" parent="visionShapes/visionRight" unique_id=415379568]
 shape = SubResource("RectangleShape2D_kw3nm")
 
 [node name="visionLeft" type="Area2D" parent="visionShapes" unique_id=2054186085]
-position = Vector2(-50, 0)
+position = Vector2(-44, 0)
 
 [node name="CSLeft" type="CollisionShape2D" parent="visionShapes/visionLeft" unique_id=1334207653]
 shape = SubResource("RectangleShape2D_kw3nm")
 
 [node name="visionUp" type="Area2D" parent="visionShapes" unique_id=1529093121]
-position = Vector2(0, -50)
+position = Vector2(0, -44)
 
 [node name="CSUp" type="CollisionShape2D" parent="visionShapes/visionUp" unique_id=1298730746]
 shape = SubResource("RectangleShape2D_kw3nm")
 
 [node name="visionDown" type="Area2D" parent="visionShapes" unique_id=2017512467]
-position = Vector2(0, 50)
+position = Vector2(0, 44)
 
 [node name="CSDown" type="CollisionShape2D" parent="visionShapes/visionDown" unique_id=287223550]
 shape = SubResource("RectangleShape2D_kw3nm")
