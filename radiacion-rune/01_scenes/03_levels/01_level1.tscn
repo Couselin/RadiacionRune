@@ -55,3 +55,5 @@ position = Vector2(224, 288)
 position = Vector2(288, 544)
 
 [node name="Entities" type="Node2D" parent="." unique_id=727673066]
+
+[node name="Bands" type="Node2D" parent="." unique_id=338366665]
