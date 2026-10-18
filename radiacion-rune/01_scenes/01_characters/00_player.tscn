@@ -10,7 +10,7 @@ size = Vector2(32, 32)
 size = Vector2(24, 24)
 
 [node name="Player" type="Node2D" unique_id=46397885]
-z_index = 1
+z_index = 20
 script = ExtResource("1_4tr5h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=463945829]
