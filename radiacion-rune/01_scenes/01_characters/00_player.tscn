@@ -18,7 +18,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4tr5h")
 
 [node name="nene_area" type="Area2D" parent="." unique_id=1793863714]
-collision_mask = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nene_area" unique_id=388138210]
 shape = SubResource("RectangleShape2D_7knqm")
@@ -53,9 +53,17 @@ shape = SubResource("RectangleShape2D_kw3nm")
 [connection signal="area_entered" from="nene_area" to="." method="_on_nene_area_area_entered"]
 [connection signal="area_entered" from="visionShapes/visionRight" to="." method="_on_vision_right_area_entered"]
 [connection signal="area_exited" from="visionShapes/visionRight" to="." method="_on_vision_right_area_exited"]
+[connection signal="body_entered" from="visionShapes/visionRight" to="." method="_on_vision_right_body_entered"]
+[connection signal="body_exited" from="visionShapes/visionRight" to="." method="_on_vision_right_body_exited"]
 [connection signal="area_entered" from="visionShapes/visionLeft" to="." method="_on_vision_left_area_entered"]
 [connection signal="area_exited" from="visionShapes/visionLeft" to="." method="_on_vision_left_area_exited"]
+[connection signal="body_entered" from="visionShapes/visionLeft" to="." method="_on_vision_left_body_entered"]
+[connection signal="body_exited" from="visionShapes/visionLeft" to="." method="_on_vision_left_body_exited"]
 [connection signal="area_entered" from="visionShapes/visionUp" to="." method="_on_vision_up_area_entered"]
 [connection signal="area_exited" from="visionShapes/visionUp" to="." method="_on_vision_up_area_exited"]
+[connection signal="body_entered" from="visionShapes/visionUp" to="." method="_on_vision_up_body_entered"]
+[connection signal="body_exited" from="visionShapes/visionUp" to="." method="_on_vision_up_body_exited"]
 [connection signal="area_entered" from="visionShapes/visionDown" to="." method="_on_vision_down_area_entered"]
 [connection signal="area_exited" from="visionShapes/visionDown" to="." method="_on_vision_down_area_exited"]
+[connection signal="body_entered" from="visionShapes/visionDown" to="." method="_on_vision_down_body_entered"]
+[connection signal="body_exited" from="visionShapes/visionDown" to="." method="_on_vision_down_body_exited"]

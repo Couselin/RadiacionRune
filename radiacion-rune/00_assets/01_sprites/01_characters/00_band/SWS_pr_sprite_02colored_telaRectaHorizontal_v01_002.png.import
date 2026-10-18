@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p641wsyun048"
-path="res://.godot/imported/SWS_pr_sprite_02colored_telaInicio_v01_001.png-9a1f4c2cad6058a53579138e2affeb04.ctex"
+uid="uid://cfpqox7qnbg1f"
+path="res://.godot/imported/SWS_pr_sprite_02colored_telaRectaHorizontal_v01_002.png-ff8aba0e0fb57f399f1f69ab92f7ce69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://00_assets/01_sprites/01_characters/SWS_pr_sprite_02colored_telaInicio_v01_001.png"
-dest_files=["res://.godot/imported/SWS_pr_sprite_02colored_telaInicio_v01_001.png-9a1f4c2cad6058a53579138e2affeb04.ctex"]
+source_file="res://00_assets/01_sprites/01_characters/00_band/SWS_pr_sprite_02colored_telaRectaHorizontal_v01_002.png"
+dest_files=["res://.godot/imported/SWS_pr_sprite_02colored_telaRectaHorizontal_v01_002.png-ff8aba0e0fb57f399f1f69ab92f7ce69.ctex"]
 
 [params]
 

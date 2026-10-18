@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bdyeqqtj74v73" path="res://01_scenes/03_levels/level.gd" id="1_ia65l"]
 [ext_resource type="Texture2D" uid="uid://bikpnrqhqdvg0" path="res://00_assets/01_sprites/02_sets/SPRITESHEET_sueloPrueba.png" id="2_p5cph"]
 [ext_resource type="Texture2D" uid="uid://cym5r1fv7dya" path="res://00_assets/01_sprites/02_sets/SWE_SPRITESHEET_floor.png" id="3_o7s33"]
+[ext_resource type="PackedScene" uid="uid://cvq0ptqw1nyft" path="res://01_scenes/02_objects/obstacle.tscn" id="4_o7s33"]
+[ext_resource type="PackedScene" uid="uid://da1r5ww3sfjno" path="res://01_scenes/02_objects/candy.tscn" id="5_o184v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4t55"]
 size = Vector2(832, 32)
@@ -58,7 +60,37 @@ debug_color = Color(0.9911713, 0, 0.27496788, 0.41960785)
 tile_map_data = PackedByteArray("AAACAAMAAQAAAAAAAAACAAQAAQABAAAAAAACAAUAAQAAAAAAAAACAAYAAQABAAAAAAADAAMAAQABAAAAAAADAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAYAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQABAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQABAAAAAAAFAAMAAQABAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQABAAAAAAAFAAYAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAMAAQABAAAAAAAGAAQAAQABAAAAAAAHAAUAAQABAAAAAAAGAAYAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_h4t55")
 
+[node name="Obstacles" type="Node2D" parent="." unique_id=2116241864]
+
+[node name="Obstacle01" parent="Obstacles" unique_id=789374340 instance=ExtResource("4_o7s33")]
+position = Vector2(160, 224)
+collision_layer = 1
+
+[node name="Obstacle02" parent="Obstacles" unique_id=996548641 instance=ExtResource("4_o7s33")]
+position = Vector2(160, 288)
+collision_layer = 1
+
+[node name="Obstacle03" parent="Obstacles" unique_id=1575683252 instance=ExtResource("4_o7s33")]
+position = Vector2(416, 224)
+collision_layer = 1
+
+[node name="Obstacle04" parent="Obstacles" unique_id=1171766444 instance=ExtResource("4_o7s33")]
+position = Vector2(352, 352)
+collision_layer = 1
+
+[node name="Obstacle05" parent="Obstacles" unique_id=2115883730 instance=ExtResource("4_o7s33")]
+position = Vector2(480, 416)
+collision_layer = 1
+
+[node name="Candies" type="Node2D" parent="." unique_id=1717927106]
+
+[node name="candy" parent="Candies" unique_id=249286557 instance=ExtResource("5_o184v")]
+position = Vector2(288, 224)
+
+[node name="candy2" parent="Candies" unique_id=438306486 instance=ExtResource("5_o184v")]
+position = Vector2(416, 288)
+
 [node name="start" type="Node2D" parent="." unique_id=501328705]
-position = Vector2(224, 352)
+position = Vector2(160, 416)
 
 [node name="Entities" type="Node2D" parent="." unique_id=727673066]
