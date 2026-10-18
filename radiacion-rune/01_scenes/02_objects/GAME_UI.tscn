@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1njgj4ufs35d" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_timer_v01.png" id="1_wdmtj"]
 [ext_resource type="FontFile" uid="uid://pw8vq8j08se7" path="res://00_assets/02_fonts/Montaplay Demo.otf" id="2_2ih3i"]
+[ext_resource type="Script" uid="uid://cpm2nuh118fqi" path="res://01_scenes/02_objects/game_ui.gd" id="2_ufd6w"]
 [ext_resource type="FontFile" uid="uid://q28kkyqc8bkx" path="res://01_scenes/04_screens/Montaplay Demo.otf" id="3_ufd6w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_arvv5"]
@@ -34,6 +35,7 @@ grow_vertical = 2
 texture = ExtResource("1_wdmtj")
 expand_mode = 4
 stretch_mode = 4
+script = ExtResource("2_ufd6w")
 
 [node name="ButtonText" type="Label" parent="." unique_id=643933175]
 layout_mode = 1
