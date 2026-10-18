@@ -32,19 +32,15 @@ candyGoal = 2
 
 [node name="Obstacle01" parent="Obstacles" unique_id=789374340 instance=ExtResource("4_eka1p")]
 position = Vector2(160, 416)
-collision_layer = 1
 
 [node name="Obstacle02" parent="Obstacles" unique_id=2023301626 instance=ExtResource("4_eka1p")]
 position = Vector2(160, 480)
-collision_layer = 1
 
 [node name="Obstacle03" parent="Obstacles" unique_id=1243618542 instance=ExtResource("4_eka1p")]
 position = Vector2(160, 544)
-collision_layer = 1
 
 [node name="Obstacle04" parent="Obstacles" unique_id=999452178 instance=ExtResource("4_eka1p")]
 position = Vector2(161, 608)
-collision_layer = 1
 
 [node name="Candies" type="Node2D" parent="." unique_id=1542139779]
 

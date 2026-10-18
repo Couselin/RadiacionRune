@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bbyblk25f05io" path="res://00_assets/01_sprites/04_props/SWS_pr_sprite_placeholder_caramelo_v01_001.png" id="1_cavji"]
 [ext_resource type="Script" uid="uid://benjtv1bkxpau" path="res://01_scenes/02_objects/obstacle.gd" id="1_dkd0n"]
+[ext_resource type="Texture2D" uid="uid://bmke3nfd8oof1" path="res://00_assets/01_sprites/04_props/SWE_blackHole.png" id="3_s22wg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw3nm"]
 size = Vector2(24, 24)
@@ -12,7 +13,7 @@ image = ExtResource("1_cavji")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453409406]
-texture = ExtResource("1_cavji")
+texture = ExtResource("3_s22wg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377570330]
 shape = SubResource("RectangleShape2D_kw3nm")
