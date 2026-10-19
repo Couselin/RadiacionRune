@@ -35,6 +35,8 @@ var levelsPath: Array =[
 
 }
 
+@export var buttonWall: ButtonWall
+@export var doorWall: DoorWall 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,6 +46,7 @@ func _ready() -> void:
 	print('hola')
 	playerInstance.bandDirections.connect(createBands)
 	playerInstance.collectOneCandy.connect(collected_one_candy)
+	playerInstance.pressButtonWall.connect(player_press_button)
 	pass # Replace with function body.
 
 func createBands(from: Vector2, to: Vector2, current_position: Vector2) -> void:
@@ -58,6 +61,13 @@ func collected_one_candy(candyNumber):
 	if candyNumber >= door.candyGoal:
 		door.open_door()
 	pass
+
+func player_press_button():
+	buttonWall.button_pressed()
+	doorWall.open_door_wall()
+	pass
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):

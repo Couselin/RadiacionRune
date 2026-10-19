@@ -19,7 +19,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4tr5h")
 
 [node name="nene_area" type="Area2D" parent="." unique_id=1793863714]
-collision_mask = 135
+collision_mask = 143
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nene_area" unique_id=388138210]
 shape = SubResource("RectangleShape2D_7knqm")

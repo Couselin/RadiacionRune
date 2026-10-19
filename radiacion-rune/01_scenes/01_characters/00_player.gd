@@ -14,6 +14,7 @@ var collectedCandy: int = 0
 
 signal bandDirections(from: Vector2, to: Vector2, current_position: Vector2)
 signal collectOneCandy(int)
+signal pressButtonWall
 
 func _ready() -> void:
 	pass
@@ -113,6 +114,8 @@ func _on_nene_area_area_entered(area: Area2D) -> void:
 		area.queue_free()
 	if area.get_collision_layer_value(8):
 		call_deferred('go_to_level_success')
+	if area.get_collision_layer_value(4):
+		pressButtonWall.emit()
 
 
 func go_to_level_success():

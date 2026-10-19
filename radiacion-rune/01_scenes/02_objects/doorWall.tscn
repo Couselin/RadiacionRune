@@ -12,6 +12,7 @@ script = ExtResource("1_57l6i")
 images = Array[Texture2D]([ExtResource("2_ninxu"), ExtResource("3_rvhu6")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=340640856]
+scale = Vector2(1, 1.5)
 texture = ExtResource("2_ninxu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=295578627]

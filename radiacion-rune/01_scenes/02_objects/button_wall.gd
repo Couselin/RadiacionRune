@@ -1,4 +1,5 @@
 extends Area2D
+class_name ButtonWall
 
 @export var images: Array[Texture2D]
 
