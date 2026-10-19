@@ -15,6 +15,7 @@ var collectedCandy: int = 0
 signal bandDirections(from: Vector2, to: Vector2, current_position: Vector2)
 signal collectOneCandy(int)
 signal pressButtonWall
+signal playerMoved(int)
 
 func _ready() -> void:
 	pass
@@ -33,6 +34,7 @@ func create_band() -> void:
 	previous_position = position
 	position = new_position
 	movements += 1
+	playerMoved.emit(movements)
 	
 	
 func _process(_delta: float) -> void:

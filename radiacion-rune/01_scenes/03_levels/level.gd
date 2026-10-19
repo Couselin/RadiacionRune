@@ -37,6 +37,7 @@ var levelsPath: Array =[
 
 @export var buttonWall: ButtonWall
 @export var doorWall: DoorWall 
+@onready var gameUI: GameUI = $gameUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,6 +48,7 @@ func _ready() -> void:
 	playerInstance.bandDirections.connect(createBands)
 	playerInstance.collectOneCandy.connect(collected_one_candy)
 	playerInstance.pressButtonWall.connect(player_press_button)
+	playerInstance.playerMoved.connect(count_moves)
 	pass # Replace with function body.
 
 func createBands(from: Vector2, to: Vector2, current_position: Vector2) -> void:
@@ -67,6 +69,8 @@ func player_press_button():
 	doorWall.open_door_wall()
 	pass
 
+func count_moves(playerMoves):
+	gameUI.update_text(str(level_max_movement - playerMoves))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
