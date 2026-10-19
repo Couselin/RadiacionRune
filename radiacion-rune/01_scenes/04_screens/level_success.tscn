@@ -2,6 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dmy3ujnuhgg0e" path="res://01_scenes/04_screens/01_components/custom_button.tscn" id="1_cuocc"]
 [ext_resource type="Script" uid="uid://dpwrsnjgggl3y" path="res://01_scenes/04_screens/level_success.gd" id="1_yqif4"]
+[ext_resource type="Texture2D" uid="uid://bqp6f5w1avo3f" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_full_patternBackground_v01.png" id="2_6dhpc"]
+[ext_resource type="Texture2D" uid="uid://cxfycyeav8w7" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_titleDecor_v01.png" id="3_i0bqh"]
+[ext_resource type="FontFile" uid="uid://pw8vq8j08se7" path="res://00_assets/02_fonts/Montaplay Demo.otf" id="4_emnq7"]
+[ext_resource type="Texture2D" uid="uid://c7ypp4kc5o6n0" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_largeButton_v01.png" id="6_baiv5"]
+[ext_resource type="Texture2D" uid="uid://bimle2h0glymf" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_largeButtonPressed_v01.png" id="7_oj5ej"]
+[ext_resource type="Texture2D" uid="uid://daiea2jr8lwdh" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_largeButtonHovered_v01.png" id="8_m4msr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8w0r3"]
+font = ExtResource("4_emnq7")
+font_size = 90
 
 [node name="LevelSuccess" type="Control" unique_id=1853997539]
 layout_mode = 3
@@ -11,6 +21,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqif4")
+
+[node name="BG" type="TextureRect" parent="." unique_id=964472267]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6dhpc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=684928906]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -478.0
+offset_right = 478.0
+offset_bottom = 221.0
+grow_horizontal = 2
+texture = ExtResource("3_i0bqh")
 
 [node name="Labels" type="Control" parent="." unique_id=1791732049]
 layout_mode = 1
@@ -27,68 +54,16 @@ anchor_left = 0.5
 anchor_top = 0.05
 anchor_right = 0.5
 anchor_bottom = 0.05
-offset_left = -82.0
-offset_top = -11.5
-offset_right = 82.0
-offset_bottom = 11.5
+offset_left = -172.5
+offset_top = 74.0
+offset_right = 172.5
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Nivel superado"
+label_settings = SubResource("LabelSettings_8w0r3")
 horizontal_alignment = 1
 uppercase = true
-
-[node name="Replay" type="Label" parent="Labels" unique_id=306050329]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.6
-anchor_right = 0.5
-anchor_bottom = 0.6
-grow_horizontal = 2
-grow_vertical = 2
-text = "	Replay level"
-
-[node name="Level Selection" type="Label" parent="Labels" unique_id=689422305]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.6
-anchor_right = 0.25
-anchor_bottom = 0.6
-grow_horizontal = 2
-grow_vertical = 2
-text = "Level Selection"
-
-[node name="Next Level" type="Label" parent="Labels" unique_id=869260314]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.75
-anchor_top = 0.6
-anchor_right = 0.75
-anchor_bottom = 0.6
-grow_horizontal = 2
-grow_vertical = 2
-text = "Next Level"
-
-[node name="Time" type="Label" parent="Labels" unique_id=1832498597]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.15
-anchor_top = 0.4
-anchor_right = 0.2
-anchor_bottom = 0.4
-grow_vertical = 2
-text = "Time 00:00:00"
-
-[node name="TimeRecord" type="Label" parent="Labels" unique_id=962818427]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.8
-anchor_top = 0.4
-anchor_right = 0.85
-anchor_bottom = 0.4
-grow_vertical = 2
-text = "Time Record 00:00:00"
 
 [node name="Buttons" type="Control" parent="." unique_id=1314931324]
 layout_mode = 1
@@ -101,48 +76,40 @@ grow_vertical = 2
 [node name="Level Selection Button" parent="Buttons" unique_id=997814475 instance=ExtResource("1_cuocc")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.75
-anchor_right = 0.25
-anchor_bottom = 0.75
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
-button_text = ""
-
-[node name="Replay Button" parent="Buttons" unique_id=1218337962 instance=ExtResource("1_cuocc")]
-layout_mode = 1
-anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.75
 anchor_right = 0.5
 anchor_bottom = 0.75
-offset_left = 0.0
-offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
-button_text = ""
+texture_normal = ExtResource("6_baiv5")
+texture_pressed = ExtResource("7_oj5ej")
+texture_hover = ExtResource("8_m4msr")
+ignore_texture_size = false
+button_text = "Select Level"
+size_text = 40
 
-[node name="Next Level Button" parent="Buttons" unique_id=1998706754 instance=ExtResource("1_cuocc")]
+[node name="Replay Button" parent="Buttons" unique_id=1218337962 instance=ExtResource("1_cuocc")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.75
-anchor_top = 0.75
-anchor_right = 0.75
-anchor_bottom = 0.75
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -48.0
+offset_right = 234.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
-button_text = ""
+texture_normal = ExtResource("6_baiv5")
+texture_pressed = ExtResource("7_oj5ej")
+texture_hover = ExtResource("8_m4msr")
+ignore_texture_size = false
+button_text = "Replay"
+size_text = 40
 
 [connection signal="pressed" from="Buttons/Level Selection Button" to="." method="_on_level_selection_button_pressed"]
 [connection signal="pressed" from="Buttons/Replay Button" to="." method="_on_replay_button_pressed"]
-[connection signal="pressed" from="Buttons/Next Level Button" to="." method="_on_next_level_button_pressed"]

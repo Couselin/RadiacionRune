@@ -1,5 +1,14 @@
 extends Node2D
 
+var levelsPath: Array =[
+	"res://01_scenes/03_levels/99_test.tscn",
+	"res://01_scenes/03_levels/01_level1.tscn",
+	"res://01_scenes/03_levels/02_level2.tscn",
+	"res://01_scenes/03_levels/03_level3.tscn",
+	"res://01_scenes/03_levels/04_level4.tscn"
+]
+@export var levelNumber: int
+
 @onready var playerRef = preload("res://01_scenes/01_characters/00_player.tscn")
 @export var initialPosition: Node2D
 @export var door: Door
@@ -51,4 +60,6 @@ func collected_one_candy(candyNumber):
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		get_tree().change_scene_to_file(levelsPath[levelNumber])
 	pass

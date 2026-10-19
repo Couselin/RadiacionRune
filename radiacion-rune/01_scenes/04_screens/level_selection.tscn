@@ -2,6 +2,19 @@
 
 [ext_resource type="Script" uid="uid://dhc6uy25uxcur" path="res://01_scenes/04_screens/level_selection.gd" id="1_1cnjc"]
 [ext_resource type="PackedScene" uid="uid://dmy3ujnuhgg0e" path="res://01_scenes/04_screens/01_components/custom_button.tscn" id="1_mciy3"]
+[ext_resource type="Texture2D" uid="uid://bqp6f5w1avo3f" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_full_patternBackground_v01.png" id="2_4c8pq"]
+[ext_resource type="Texture2D" uid="uid://cxfycyeav8w7" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_titleDecor_v01.png" id="3_453ne"]
+[ext_resource type="FontFile" uid="uid://pw8vq8j08se7" path="res://00_assets/02_fonts/Montaplay Demo.otf" id="4_l5pu8"]
+[ext_resource type="Texture2D" uid="uid://m5b6sr0gy1pg" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_tinyButton_v01.png" id="6_ygb61"]
+[ext_resource type="Texture2D" uid="uid://cpx86tg33qq65" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_tinyButtonPressed_v01.png" id="7_1si5c"]
+[ext_resource type="Texture2D" uid="uid://0pso6r5s4rt1" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_tinyButtonHovered_v01.png" id="8_phmut"]
+[ext_resource type="Texture2D" uid="uid://dll5elw82anmc" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_backButton_v01.png" id="9_dykq1"]
+[ext_resource type="Texture2D" uid="uid://dym11jjwt4aag" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_backButtonPressed_v01.png" id="10_xafn8"]
+[ext_resource type="Texture2D" uid="uid://bpqjwv1fln1iv" path="res://00_assets/01_sprites/03_ui/SWS_UI_sprite_final_BackButtonHovered_v01.png" id="11_tavna"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8w0r3"]
+font = ExtResource("4_l5pu8")
+font_size = 150
 
 [node name="LevelSelection" type="Control" unique_id=1523993108]
 layout_mode = 3
@@ -12,18 +25,37 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1cnjc")
 
-[node name="Label" type="Label" parent="." unique_id=358791834]
+[node name="BG" type="TextureRect" parent="." unique_id=712534632]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_4c8pq")
+
+[node name="LevelText" type="TextureRect" parent="." unique_id=851237400]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -478.0
+offset_right = 478.0
+offset_bottom = 221.0
+grow_horizontal = 2
+texture = ExtResource("3_453ne")
+
+[node name="Label" type="Label" parent="LevelText" unique_id=358791834]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.15
 anchor_right = 0.5
 anchor_bottom = 0.15
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -81.0
+offset_top = 51.85
+offset_right = 177.0
+offset_bottom = 214.85
 grow_horizontal = 2
 text = "Levels"
+label_settings = SubResource("LabelSettings_8w0r3")
 
 [node name="Level1" parent="." unique_id=997814475 instance=ExtResource("1_mciy3")]
 layout_mode = 1
@@ -32,13 +64,17 @@ anchor_left = 0.25
 anchor_top = 0.4
 anchor_right = 0.25
 anchor_bottom = 0.4
-offset_left = -32.0
+offset_left = -56.0
 offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_right = 72.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-button_text = "Level 1"
+texture_normal = ExtResource("6_ygb61")
+texture_pressed = ExtResource("7_1si5c")
+texture_hover = ExtResource("8_phmut")
+button_text = "1"
+size_text = 60
 
 [node name="Level2" parent="." unique_id=1657392992 instance=ExtResource("1_mciy3")]
 layout_mode = 1
@@ -47,13 +83,17 @@ anchor_left = 0.5
 anchor_top = 0.4
 anchor_right = 0.5
 anchor_bottom = 0.4
-offset_left = -32.0
+offset_left = -56.0
 offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_right = 72.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-button_text = "Level 2"
+texture_normal = ExtResource("6_ygb61")
+texture_pressed = ExtResource("7_1si5c")
+texture_hover = ExtResource("8_phmut")
+button_text = "2"
+size_text = 60
 
 [node name="Level3" parent="." unique_id=155565845 instance=ExtResource("1_mciy3")]
 layout_mode = 1
@@ -62,13 +102,17 @@ anchor_left = 0.75
 anchor_top = 0.4
 anchor_right = 0.75
 anchor_bottom = 0.4
-offset_left = -32.0
+offset_left = -56.0
 offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_right = 72.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-button_text = "Level 3"
+texture_normal = ExtResource("6_ygb61")
+texture_pressed = ExtResource("7_1si5c")
+texture_hover = ExtResource("8_phmut")
+button_text = "3"
+size_text = 60
 
 [node name="Level4" parent="." unique_id=237741186 instance=ExtResource("1_mciy3")]
 layout_mode = 1
@@ -77,13 +121,17 @@ anchor_left = 0.375
 anchor_top = 0.6
 anchor_right = 0.375
 anchor_bottom = 0.6
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_left = -56.0
+offset_top = -32.00003
+offset_right = 72.0
+offset_bottom = 95.99997
 grow_horizontal = 2
 grow_vertical = 2
-button_text = "Level 4"
+texture_normal = ExtResource("6_ygb61")
+texture_pressed = ExtResource("7_1si5c")
+texture_hover = ExtResource("8_phmut")
+button_text = "4"
+size_text = 60
 
 [node name="Level5" parent="." unique_id=180413103 instance=ExtResource("1_mciy3")]
 layout_mode = 1
@@ -92,13 +140,17 @@ anchor_left = 0.625
 anchor_top = 0.6
 anchor_right = 0.625
 anchor_bottom = 0.6
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_left = -56.0
+offset_top = -32.00003
+offset_right = 72.0
+offset_bottom = 95.99997
 grow_horizontal = 2
 grow_vertical = 2
-button_text = "Level 5"
+texture_normal = ExtResource("6_ygb61")
+texture_pressed = ExtResource("7_1si5c")
+texture_hover = ExtResource("8_phmut")
+button_text = "5"
+size_text = 60
 
 [node name="Back" parent="." unique_id=1928532478 instance=ExtResource("1_mciy3")]
 layout_mode = 1
@@ -107,11 +159,15 @@ anchor_left = 0.05
 anchor_top = 0.95
 anchor_right = 0.05
 anchor_bottom = 0.95
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 0.0
+offset_top = -126.0
+offset_right = 128.0
+offset_bottom = 2.0
 grow_vertical = 0
+texture_normal = ExtResource("9_dykq1")
+texture_pressed = ExtResource("10_xafn8")
+texture_hover = ExtResource("11_tavna")
 button_text = "Back"
+size_text = 60
 
 [connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
