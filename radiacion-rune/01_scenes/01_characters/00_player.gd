@@ -113,6 +113,7 @@ func _on_nene_area_area_entered(area: Area2D) -> void:
 		collectOneCandy.emit(collectedCandy)
 		area.queue_free()
 	if area.get_collision_layer_value(8):
+		Global.last_level = get_parent().get_parent().levelNumber
 		call_deferred('go_to_level_success')
 	if area.get_collision_layer_value(4):
 		pressButtonWall.emit()

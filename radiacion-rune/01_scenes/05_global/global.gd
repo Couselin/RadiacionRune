@@ -1,3 +1,3 @@
 extends Node
 
-var last_level : String
+var last_level : int
