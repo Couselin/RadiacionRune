@@ -5,7 +5,8 @@ var levelsPath: Array =[
 	"res://01_scenes/03_levels/01_level1.tscn",
 	"res://01_scenes/03_levels/02_level2.tscn",
 	"res://01_scenes/03_levels/03_level3.tscn",
-	"res://01_scenes/03_levels/04_level4.tscn"
+	"res://01_scenes/03_levels/04_level4.tscn",
+	"res://01_scenes/03_levels/05_level5.tscn"
 ]
 @export var levelNumber: int
 
