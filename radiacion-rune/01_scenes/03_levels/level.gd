@@ -39,9 +39,10 @@ var levelsPath: Array =[
 @export var doorWall: DoorWall 
 @onready var gameUI: GameUI = $gameUI
 
+var playerInstance: Player
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var playerInstance := playerRef.instantiate() as Player
+	playerInstance = playerRef.instantiate()
 	$Entities.add_child(playerInstance)
 	playerInstance.set_player(initialPosition.position, level_max_movement)
 	print('hola')
@@ -71,7 +72,13 @@ func player_press_button():
 
 func count_moves(playerMoves):
 	gameUI.update_text(str(level_max_movement - playerMoves))
-
+	if playerMoves == 1:
+		playerInstance.change_sprite(1)
+	@warning_ignore("integer_division")
+	if playerMoves == int(level_max_movement/2):
+		playerInstance.change_sprite(2)
+	if level_max_movement - playerMoves == 3:
+		playerInstance.change_sprite(3)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):

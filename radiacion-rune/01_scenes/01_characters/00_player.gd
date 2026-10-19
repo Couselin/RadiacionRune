@@ -12,6 +12,9 @@ var movements := 0
 
 var collectedCandy: int = 0
 
+@export var sprites: Array[Texture2D]
+@onready var sprite: Sprite2D = $Sprite2D
+
 signal bandDirections(from: Vector2, to: Vector2, current_position: Vector2)
 signal collectOneCandy(int)
 signal pressButtonWall
@@ -35,8 +38,10 @@ func create_band() -> void:
 	position = new_position
 	movements += 1
 	playerMoved.emit(movements)
-	
-	
+
+func change_sprite(n):
+	sprite.texture = sprites[n]
+
 func _process(_delta: float) -> void:
 	if movements < max_movements:
 		if Input.is_action_just_pressed("right") and goRight==true:
